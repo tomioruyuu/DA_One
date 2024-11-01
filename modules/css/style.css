@@ -1,0 +1,130 @@
+/* CSS project */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* common code */
+.main-content {
+  width: 1170px;
+  max-width: calc(100% - 48px);
+  margin-left: auto;
+  margin-right: auto;
+}
+.active {
+  color: var(--primary-color);
+  text-shadow: 0 0 1px var(--primary-color);
+}
+
+:root {
+  --primary-color: #22bab3;
+}
+
+
+body {
+  background-color: #f5f5f5;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+.img {
+  object-fit: cover;
+  object-position: center;
+}
+.df-center {
+  display: flex;
+  align-items: center;
+}
+
+/* header navigation */
+header {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  position: sticky;
+  padding: 5px;
+  top: 0;
+  z-index: 1;
+}
+
+.header-content {
+  justify-content: space-between;
+}
+
+.header-logo img {
+  width: 110px;
+  height: 55px;
+}
+
+.navigation li a {
+  font-size: 1.6rem;
+  display: inline-block;
+  padding: 8px 12px;
+  font-weight: 500;
+  transition: 0.2s linear;
+}
+
+.navigation li a:hover {
+  text-shadow: 0 0 1px var(--primary-color);
+  color: var(--primary-color);
+}
+
+.header-action {
+  margin: 0 10px;
+}
+
+.header-action i {
+  font-size: 20px;
+}
+
+.header-search {
+  border: 1px solid #000;
+  border-radius: 9999px;
+  overflow: hidden;
+  transition: 0.2s linear;
+ 
+}
+
+.header-search input {
+  width: 220px;
+  height: 25px;
+  outline: none;
+  border: none;
+  padding: 0 5px;
+}
+
+.header-search:focus-within{
+  border-color: var(--primary-color);
+  box-shadow: rgba(34,186,179, 0.5) 0px 1px 4px;
+}
+
+.header-search .search-btn {
+  background: #fff;
+  border: none;
+  outline: none;
+  padding: 4px;
+  border-left: 1px solid #eee;
+}
+
+.header-search .search-btn i {
+  font-size: 16px;
+}
+
+.header-user i {
+  font-size: 25px;
+}

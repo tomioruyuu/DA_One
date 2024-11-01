@@ -5,6 +5,23 @@ class ConnectDatabase{
     public $pdo;
     public $sql;
     public $sta;
+
+
+//  Tự kết nối với database
+    public function __construct()
+    {
+        try {
+            $this->pdo = new PDO("mysql:host="._HOST.";dbname="._DB_NAME.";charset="._CHARSET, _USER, _PASS);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo"ket noi thanh cong";
+        } catch (PDOException $e) {
+            echo $e->getMessage(). "<br>";
+            echo $e->getLine(). "<br>";
+            echo $e->getFile(). "<br>";
+           
+        }
+    }
+
 //   Các phương thức tạo sẵn theo base
     public function setQuery($sql) {
         $this->sql = $sql;
