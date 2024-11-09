@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require_once("./modules/templates/header.php");
     require_once("./Model/ConnectDatabase.php");
     require_once("./Model/admin/Products.php");

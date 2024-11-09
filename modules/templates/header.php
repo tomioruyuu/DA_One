@@ -24,40 +24,94 @@
                 <div class="header-logo">
                     <img class="img" src="modules\images\logog7-removebg-preview.png" alt="">
                 </div>
+
+
                 <ul class="navigation df-center">
-                    <li>
-                        <a class="active" href="">Trang chủ</a>
-                    </li>
-                    <li>
-                        <a href="">Sản phẩm</a>
-                    </li>
-                    <li>
-                        <a href="">Giá tốt</a>
-                    </li>
-                    <li>
-                        <a href="">Phiếu quà tặng</a>
-                    </li>
-                    <li>
-                        <a href="">Hệ thống cửa hàng</a>
-                    </li>
+                <?php 
+                    if($_SESSION["username"] == "admin") {
+                        ?>
+                        <li>
+                            <a class="active" href="">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="">Sản phẩm</a>
+                        </li>
+                        <li>
+                            <a href="">Tài khoản người dùng</a>
+                        </li>
+                        <li>
+                            <a href="">Bình luận</a>
+                        </li>
+                        <li>
+                            <a href="">Đơn hàng</a>
+                        </li>
+                        <li>
+                            <a href="">Thống kê</a>
+                        </li>
+                        <?php
+                    }
+                    else {
+                        ?>
+                        <li>
+                            <a class="active" href="">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="">Sản phẩm</a>
+                        </li>
+                        <li>
+                            <a href="">Giá tốt</a>
+                        </li>
+                        <li>
+                            <a href="">Phiếu quà tặng</a>
+                        </li>
+                        <li>
+                            <a href="">Hệ thống cửa hàng</a>
+                        </li>
+                        <?php
+                    }
+                ?>
+                    
                 </ul>
-                <div class="header-other df-center">
-                    <form class="header-action header-search df-center">
-                        <input type="search" name="search-btn" id="search-btn" placeholder="Tìm kiếm...">
-                        <button type="submit" class="search-btn">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </form>
-                    <div class="header-action header-user">
-                        <i class="fa-regular fa-circle-user"></i>
-                    </div>
-                    <div class="header-action header-cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <div class="quantity">
-                            <p>20</p>
+
+                <?php 
+                    if($_SESSION["username"] == "admin") {
+                        ?>
+                        <div class="header-other df-center">
+                            <div class="header-action header-user">
+                                <i class="fa-regular fa-circle-user"></i>
+                            </div>
+                            <div class="header-action header-cart">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <div class="quantity">
+                                    <p>20</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                        <?php
+                    }
+                    else {
+                        ?>
+                        <div class="header-other df-center">
+                            <form class="header-action header-search df-center">
+                                <input type="search" name="search-btn" id="search-btn" placeholder="Tìm kiếm...">
+                                <button type="submit" class="search-btn">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </form>
+                            <div class="header-action header-user">
+                                <i class="fa-regular fa-circle-user"></i>
+                            </div>
+                            <div class="header-action header-cart">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <div class="quantity">
+                                    <p>20</p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                ?>
+                
             </div>
         </div>
     </header>
