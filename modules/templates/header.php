@@ -13,8 +13,8 @@
 
     <!-- link css -->
     <link rel="stylesheet" href="modules/css/bootstrap.min.css">
-    <link rel="stylesheet" href="modules/css/reset.css">
-    <link rel="stylesheet" href="modules/css//style.css">
+    <link rel="stylesheet" href="modules/css/reset.css" >
+    <link rel="stylesheet" href="modules/css//style.css?ver=<?php echo rand()?>">
     <title>Document</title>
 </head>
 <body>
@@ -53,7 +53,9 @@
                     </div>
                     <div class="header-action header-cart">
                         <i class="fa-solid fa-cart-shopping"></i>
-                        <div class="quantity"></div>
+                        <div class="quantity">
+                            <p>20</p>
+                        </div>
                     </div>
                 </div>
             </div>
