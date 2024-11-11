@@ -6,14 +6,17 @@
     require_once("./Model/admin/Accounts.php");
     require_once("./Model/admin/Comments.php");
     require_once("./Model/admin/Statistics.php");
+    require_once("./Model/admin/Orders.php");
     require_once("./Controllers/admin/ControllerProducts.php");
     require_once("./Controllers/admin/ControllerAccounts.php");
     require_once("./Controllers/admin/ControllerComments.php");
     require_once("./Controllers/admin/ControllerStatistics.php");
+    require_once("./Controllers/admin/ControllerOrders.php");
     $cProducts = new ControllerProducts();
     $cAccounts = new ControllerAccounts();
     $cComments = new ControllerComments();
     $cStatistics = new ControllerStatistics();
+    $cOrders = new ControllerOrders();
     $_SESSION["username"] = "admin";
 
     if($_SESSION["username"]) {
