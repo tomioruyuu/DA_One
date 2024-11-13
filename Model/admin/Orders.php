@@ -29,7 +29,7 @@ class Orders {
     }
 
     public function updateOrders($id,$status,$methods_payment,$another_address,$create_at){
-        $sql="UPDATE `orders` SET ,`status`='?',`methods_payment`='?',`another_address`='?',`create_at`='?' WHERE `id`='$id'";
+        $sql="UPDATE `orders` SET `status`='?',`methods_payment`='?',`another_address`='?',`create_at`='?' WHERE `id`='$id'";
         $this->connect->setQuery($sql);
         $check = $this->connect->loadData([$id,$status,$methods_payment,$another_address,$create_at]);
         if($check){
