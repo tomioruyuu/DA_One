@@ -10,7 +10,22 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
+html,
+body, input, textarea {
+  font-family: "Poppins", sans-serif;
+}
+
+
 /* common code */
+.mr-20 {
+  margin-right: 20px;
+}
+.ml-20 {
+  margin-left: 20px;
+}
+.mt20 {
+  margin-top: 20px;
+}
 .main-content {
   width: 1170px;
   max-width: calc(100% - 48px);
@@ -25,7 +40,6 @@ html {
 :root {
   --primary-color: #22bab3;
 }
-
 
 body {
   background-color: #f5f5f5;
@@ -97,7 +111,6 @@ header {
   border-radius: 9999px;
   overflow: hidden;
   transition: 0.2s linear;
- 
 }
 
 .header-search input {
@@ -108,9 +121,9 @@ header {
   padding: 0 5px;
 }
 
-.header-search:focus-within{
+.header-search:focus-within {
   border-color: var(--primary-color);
-  box-shadow: rgba(34,186,179, 0.5) 0px 1px 4px;
+  box-shadow: rgba(34, 186, 179, 0.5) 0px 1px 4px;
 }
 
 .header-search .search-btn {
@@ -125,8 +138,8 @@ header {
   font-size: 16px;
 }
 
-.header-user i {
-  font-size: 25px;
+.header-user .user-guest {
+  font-size: 30px;
 }
 
 .header-cart {
@@ -143,11 +156,86 @@ header {
   background-color: #000;
   width: 18px;
   height: 18px;
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 
 .quantity p {
   color: #fff;
 }
 
-/* footer */
+/* ------------------------------------------------------------------------------------------------------------------------ */
+/* ADMIN */
+
+/* ----------------DANH SÁCH SẢN PHẨM---------------------------- */
+.header-user .user-admin {
+  font-size: 100px;
+}
+.admin-name-user {
+  font-size: 1.6rem;
+}
+
+.list_product-heading {
+  margin-top: 10px;
+}
+
+.title-line {
+  border: 2px solid #000;
+  height: 2px;
+  width: 20px;
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.title-list-product {
+  margin-left: 5px;
+}
+
+.list-product table {
+  margin-top: 20px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+
+.list-product th {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.6rem;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.list-cta button,
+.list-cta a,
+.btn-form {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  border-radius: 999px;
+  transition: 0.2s linear;
+}
+
+.list-cta button:hover,
+.list-cta a:hover,
+.btn-form:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 1.4rem;
+  border-radius: 999px;
+}
+
+/* ------------ các form ------------ */
+.form-group + .form-group {
+  margin-top: 15px;
+}
+.form-group label {
+  font-size: 1.4rem;
+}
+
+.form-group input {
+  padding: 8px 8px;
+  font-size: 1.4rem;
+}
+
+.form-group ::placeholder {
+  font-size: 1.4rem;
+}

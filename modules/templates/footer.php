@@ -8,6 +8,6 @@
 <body>
     
 <script src="modules/js/bootstrap.min.js"></script>
-<script src="modules/js/main.js"></script>
+<script src="modules/js/main.js?ver=<?php echo rand()?>"></script>
 </body>
 </html>
