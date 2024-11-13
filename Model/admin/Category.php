@@ -1,6 +1,6 @@
 <?php 
 // đây là trang sản phẩm
-    class Products {
+    class Category {
         public $connect;
 
         public function __construct()
@@ -9,8 +9,8 @@
         }
 
         // lấy toàn bộ danh sách sản phẩm
-        public function getAllDataProducts() {
-            $sql = "SELECT * FROM products";
+        public function getAllDataCategory() {
+            $sql = "SELECT * FROM category";
             $this->connect->setQuery($sql);
             return $this->connect->loadData();
         }

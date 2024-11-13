@@ -13,7 +13,7 @@ class ConnectDatabase{
         try {
             $this->pdo = new PDO("mysql:host="._HOST.";dbname="._DB_NAME.";charset="._CHARSET, _USER, _PASS);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo"ket noi thanh cong";
+           
         } catch (PDOException $e) {
             echo $e->getMessage(). "<br>";
             echo $e->getLine(). "<br>";
