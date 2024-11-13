@@ -20,10 +20,10 @@
             return $this->connect->loadData([$id],false);
         }
     
-        public function updateComments($id,$content){
+        public function updateComments($content,$id){
             $sql="UPDATE `comments` SET `content`='?' WHERE id`='?'";
             $this->connect->setQuery($sql);
-            $check = $this->connect->loadData([$id,$content]);
+            $check = $this->connect->loadData([$content,$id]);
             if($check){
                 return true;
             }

@@ -30,9 +30,9 @@
         }
     
         public function updateAccounts($id,$fullname, $username, $password, $email, $phone, $address){
-            $sql="UPDATE `users` SET `fullname`='?',`username`='?',`password`='?',`email`='?',`phone`='?',`address`='?' WHERE `id`='$id'";
+            $sql="UPDATE `users` SET `fullname`='?',`username`='?',`password`='?',`email`='?',`phone`='?',`address`='?' WHERE `id`='?'";
             $this->connect->setQuery($sql);
-            $check = $this->connect->loadData([$fullname, $username, $password, $email, $phone, $address]);
+            $check = $this->connect->loadData([$fullname, $username, $password, $email, $phone, $address,$id]);
             if($check){
                 return true;
             }
