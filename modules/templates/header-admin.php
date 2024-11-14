@@ -24,19 +24,8 @@
                 <img class="img" src="modules\images\logog7-removebg-preview.png" alt="">
             </div>
     
-            
         </div>
     </header>
-    <div class="d-flex row">
-        <div class="col-3">
-        <div class="header-other df-center mr-20">
-                <div class="header-action header-user">
-                    <i class="fa-regular fa-circle-user user-admin"></i>
-                </div>
-                <p class="admin-name-user"></p>
-            </div>
-        </div>
-        <div class="col-9"></div>
-    </div>
+    
 </body>
 </html>
