@@ -11,12 +11,16 @@ html {
 }
 
 html,
-body, input, textarea {
+body,
+input,
+textarea {
   font-family: "Poppins", sans-serif;
 }
 
-
 /* common code */
+.content-body {
+  width: 90%;
+}
 .mr-20 {
   margin-right: 20px;
 }
@@ -25,6 +29,14 @@ body, input, textarea {
 }
 .mt20 {
   margin-top: 20px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
 }
 .main-content {
   width: 1170px;
@@ -64,6 +76,10 @@ a {
 .df-center {
   display: flex;
   align-items: center;
+}
+
+.body-content {
+  margin-top: 20px;
 }
 
 /* header navigation */
@@ -171,7 +187,10 @@ header {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-/* ----------------DANH SÁCH SẢN PHẨM---------------------------- */
+.header-other {
+  margin-top: 30px;
+}
+
 .header-user .user-admin {
   font-size: 100px;
 }
@@ -179,7 +198,51 @@ header {
   font-size: 1.6rem;
   font-weight: 600;
   display: flex;
+  margin-top: 15px;
 }
+
+.admin-navigate {
+  padding: 0 0 20px;
+}
+
+.admin-navigate li {
+  padding-left: 20px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transition: 0.2s linear;
+}
+
+.admin-navigate li:hover {
+  background-color: var(--primary-color);
+}
+
+.admin-navigate li:hover i {
+  color: #fff;
+}
+.admin-navigate li:hover a {
+  color: #fff;
+}
+
+
+.admin-navigate li i {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  transition: 0.2s linear;
+}
+
+.admin-navigate li a {
+  display: inline-block;
+  width: 80%;
+  padding: 12px 0;
+  font-size: 1.4rem;
+  margin-left: 10px;
+  transition: 0.2s linear;
+}
+
+/* ----------------DANH SÁCH SẢN PHẨM---------------------------- */
 
 .list_product-heading {
   margin-top: 10px;
@@ -187,14 +250,16 @@ header {
 
 .title-line {
   border: 2px solid #000;
-  height: 2px;
-  width: 20px;
+  height: 1px;
+  width: 10px;
   border-radius: 1px;
   overflow: hidden;
 }
 
 .title-list-product {
   margin-left: 5px;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
 .list-product table {
@@ -206,9 +271,15 @@ header {
 .list-product th {
   font-family: "Poppins", sans-serif;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
+  padding: 12px 0;
   background-color: var(--primary-color);
   color: #fff;
+}
+
+.list-product td {
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .list-cta button,
@@ -230,9 +301,16 @@ header {
   border-radius: 999px;
 }
 
+.btn-function i,
+.btn-function a{
+   font-size: 14px;
+   color: #000;
+}
+
+
 /* ------------ các form ------------ */
 .form-group + .form-group {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 .form-group label {
   font-size: 1.4rem;
@@ -241,8 +319,19 @@ header {
 .form-group input {
   padding: 8px 8px;
   font-size: 1.4rem;
+  margin-top: 5px;  
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
 }
 
 .form-group ::placeholder {
   font-size: 1.4rem;
+}
+
+.form-group p {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  font-weight: 600;
 }
