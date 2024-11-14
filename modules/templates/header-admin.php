@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
 
     <!-- link css -->
-    <link rel="stylesheet" href="modules/css/reset.css" >
     <link rel="stylesheet" href="modules/css/bootstrap.min.css">
+    <link rel="stylesheet" href="modules/css/reset.css" >
     <link rel="stylesheet" href="modules/css/style.css?ver=<?php echo rand()?>">
     <title>Document</title>
 </head>

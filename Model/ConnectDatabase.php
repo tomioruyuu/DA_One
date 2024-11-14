@@ -51,6 +51,8 @@ class ConnectDatabase{
             // Ở đây có thể log lỗi, thông báo cho người dùng hoặc thực hiện các hành động khác
             // Ví dụ:
             echo "Lỗi khi thực thi truy vấn: " . $e->getMessage();
+            echo $e->getLine(). "<br>";
+            echo $e->getFile(). "<br>";
             // hoặc
             // throw $e; // Chuyển ngoại lệ để xử lý ở nơi khác nếu cần
         }
@@ -80,6 +82,8 @@ class ConnectDatabase{
             // Có thể log lỗi, thông báo cho người dùng hoặc thực hiện các hành động khác
             // Ví dụ:
             echo "Lỗi truy vấn: " . $e->getMessage();
+            echo $e->getLine(). "<br>";
+            echo $e->getFile(). "<br>";
             // hoặc
             // throw $e; // Chuyển ngoại lệ để xử lý ở nơi khác nếu cần
         }
