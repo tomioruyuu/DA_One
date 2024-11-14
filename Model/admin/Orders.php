@@ -7,10 +7,10 @@ class Orders {
         $this->connect = new ConnectDatabase();
     }
 
-    public function insertOrders( $status, $methods_payment, $another_address, $create_at){
-        $sql="INSERT INTO `orders`(`status`, `methods_payment`, `another_address`, `create_at`) VALUES ('?','?','?','?')";
+    public function insertOrders( $id,$status, $methods_payment, $another_address, $create_at){
+        $sql="INSERT INTO `orders`(`id`,`status`, `methods_payment`, `another_address`, `create_at`) VALUES ('?','?','?','?','?')";
         $this->connect->setQuery($sql);
-        $check = $this->connect->loadData([$status, $methods_payment, $another_address, $create_at]);
+        $check = $this->connect->loadData([$id,$status, $methods_payment, $another_address, $create_at]);
         if($check){
             return true;
         }

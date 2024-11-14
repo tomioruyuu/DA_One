@@ -166,12 +166,19 @@ header {
 /* ------------------------------------------------------------------------------------------------------------------------ */
 /* ADMIN */
 
+/* Phần bên phải admin */
+.right-section {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
 /* ----------------DANH SÁCH SẢN PHẨM---------------------------- */
 .header-user .user-admin {
   font-size: 100px;
 }
 .admin-name-user {
   font-size: 1.6rem;
+  font-weight: 600;
+  display: flex;
 }
 
 .list_product-heading {
