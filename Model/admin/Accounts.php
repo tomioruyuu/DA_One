@@ -8,10 +8,10 @@
             $this->connect = new ConnectDatabase();
         }
 
-        public function insertAccounts($fullname, $username, $password, $email, $phone, $address){
-            $sql="INSERT INTO `users`(`fullname`, `username`, `password`, `email`, `phone`, `address`) VALUES ('?','?','?','?','?','?')";
+        public function insertAccounts($id, $fullname, $username, $password, $email, $phone, $address){
+            $sql="INSERT INTO `users`(`id`,`fullname`, `username`, `password`, `email`, `phone`, `address`) VALUES ('?','?','?','?','?','?')";
             $this->connect->setQuery($sql);
-            $check = $this->connect->loadData([$fullname, $username, $password, $email, $phone, $address]);
+            $check = $this->connect->loadData([$id, $fullname, $username, $password, $email, $phone, $address]);
             if($check){
                 return true;
             }

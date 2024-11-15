@@ -26,6 +26,10 @@
     $act = $_GET["act"] ?? "/";
     if(isset($_SESSION["username"]) && $_SESSION["username"] == "admin") {
         require_once("./modules/templates/header-admin.php");
+        ?>
+        <div class="d-flex align-content-center">
+        <?php
+        require_once("./modules/templates/right-section.php");
         switch ($act) {
             // handle category
             case "listCategory":
@@ -51,6 +55,9 @@
                 require_once("./Views/admin/dashboard.php");
                 break;
         }
+        ?>
+        </div>
+        <?php
     }
     else if(isset($_SESSION["username"]) && $_SESSION["username"] == "guest") {
         require_once("./modules/templates/header-guest.php");
