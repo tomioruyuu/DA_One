@@ -26,11 +26,11 @@
                             <td>
                                 <button class="btn btn-warning btn-function">
                                     <i class="fa-solid fa-pen-to-square"></i>
-                                    <a href=""> Sửa</a>
+                                    <a href="?act=editCategory&id=<?php echo $item->id ?>">Sửa</a>
                                 </button>
-                                <button class="btn btn-danger btn-function">
+                                <button onclick="confirmDelete('?act=deleteCategory&id=<?php echo $item->id ?>')" class="btn btn-danger btn-function">
                                     <i class="fa-solid fa-trash"></i>
-                                    <a href=""> Xóa</a>
+                                    Xóa
                                 </button>
                             </td>
                         </tr>
@@ -47,3 +47,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    function confirmDelete(url) {
+        if(window.confirm("Bạn có chắc chắn muốn xóa không")) {
+            window.location = url
+        }
+    }
+</script>

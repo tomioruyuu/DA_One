@@ -187,7 +187,7 @@ header {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.header-other {
+.header-admin-user {
   margin-top: 30px;
 }
 
@@ -302,7 +302,8 @@ header {
 }
 
 .btn-function i,
-.btn-function a{
+.btn-function a,
+.btn-function{
    font-size: 14px;
    color: #000;
 }
