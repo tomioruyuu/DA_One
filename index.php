@@ -60,6 +60,26 @@
             case 'listProduct':
                 $cProducts->listProducts();
                 break;
+            // handle accounts
+            case "listAccounts":
+                $cAccounts->listAccounts();
+                break;
+            case "addAccounts":
+                $cAccounts->addAccounts();
+                break;
+            case "editAccounts":
+                $cAccounts->editAccounts();
+                break;
+            case "deleteAccounts":
+                $cAccounts->deleteAccounts();
+                break;
+                // handle accounts
+            case "listComments":
+                $cComments->listComments();
+                break;
+            case "deleteComments":
+                $cComments->deleteComments();
+                break;
             default:
                 $cDashboard->renderDashboard();
                 break;
