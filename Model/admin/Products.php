@@ -14,5 +14,17 @@
             $this->connect->setQuery($sql);
             return $this->connect->loadData();
         }
+
+        public function getDataCate() {
+            $sql = "SELECT * FROM `category`";
+            $this->connect->setQuery($sql);
+            return $this->connect->loadData();
+        }
+
+        public function handleAddProduct($id, $name, $price, $img, $quantity, $description, $id_category) {
+            $sql = "INSERT INTO `products`(`id`, `name`, `price`, `img`, `quantity`, `desciption`, `id_category`) VALUES (?,?,?,?,?,?,?)";
+            $this->connect->setQuery($sql);
+            return $this->connect->loadData([$id, $name, $price, $img, $quantity, $description, $id_category]);
+        }
     }
 ?>
