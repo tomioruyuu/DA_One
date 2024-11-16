@@ -1,8 +1,5 @@
-<?php 
-    
-?>
 
-<div class="main-content body-content">
+<div class="col-10 body-content">
     <div class="list-product">
         <div class="list_product-heading df-center align-items-center">
             <div class="title-line"></div>
