@@ -228,6 +228,12 @@ header {
   color: #fff;
 }
 
+.admin-navigate li.active i,
+.admin-navigate li.active a {
+  color: var(--primary-color);
+  text-shadow: 0 0 1px var(--primary-color);
+}
+
 .admin-navigate li i {
   font-size: 24px;
   width: 24px;

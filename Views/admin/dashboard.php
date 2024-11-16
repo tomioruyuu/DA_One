@@ -1,10 +1,4 @@
 <div class="col-10 body-content">
-    <?php 
-        echo "<pre>";
-        print_r($quantityCate);
-        echo "</pre>";
-        
-    ?>
     <div class="list_product-heading df-center align-items-center">
         <div class="title-line"></div>
         <h1 class="title-list-product">Tổng quan</h1>
