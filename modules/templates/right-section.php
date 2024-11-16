@@ -1,5 +1,5 @@
 <div class="col-2 right-section">
-    <div class="header-other df-center flex-column mr-20">
+    <div class="header-admin-user df-center flex-column mr-20">
         <div class="header-action header-user">
             <i class="fa-regular fa-circle-user user-admin"></i>
         </div>

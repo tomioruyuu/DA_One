@@ -38,6 +38,12 @@
             case "addCategory":
                 $cCategory->addCategory();
                 break;
+            case "editCategory":
+                $cCategory->editCategory();
+                break;
+            case "deleteCategory":
+                $cCategory->deleteCategory();
+                break;
             // handle product
             case 'addProduct':
                $cProducts->addProducts();
