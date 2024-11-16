@@ -1,14 +1,14 @@
 <div class="col-2 right-section">
-    <div class="header-other df-center flex-column mr-20">
+    <div class="header-admin-user df-center flex-column mr-20">
         <div class="header-action header-user">
             <i class="fa-regular fa-circle-user user-admin"></i>
         </div>
         <p class="admin-name-user">Ngo Van Thanh</p>
     </div>
     <ul class="admin-navigate">
-        <li>
-            <i class="fa-solid fa-gauge active"></i>
-            <a href="?act=dashboard" class="active">Trang chủ</a>
+        <li  >
+            <i class="fa-solid fa-gauge "></i>
+            <a href="?act=dashboard">Trang chủ</a>
         </li>
         <li>
             <i class="fa-solid fa-table-cells-large"></i>

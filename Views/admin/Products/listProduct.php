@@ -1,4 +1,4 @@
-<div class="main-content">
+<div class="col-10 body-content">
     <form class="list-product">
         <div class="list_product-heading df-center">
             <div class="title-line"></div>

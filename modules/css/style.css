@@ -80,10 +80,13 @@ a {
 
 .body-content {
   margin-top: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 10px;
 }
 
 /* header navigation */
 header {
+  background: #fff;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   position: sticky;
@@ -187,7 +190,7 @@ header {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.header-other {
+.header-admin-user {
   margin-top: 30px;
 }
 
@@ -225,6 +228,11 @@ header {
   color: #fff;
 }
 
+.admin-navigate li.active i,
+.admin-navigate li.active a {
+  color: var(--primary-color);
+  text-shadow: 0 0 1px var(--primary-color);
+}
 
 .admin-navigate li i {
   font-size: 24px;
@@ -242,7 +250,7 @@ header {
   transition: 0.2s linear;
 }
 
-/* ----------------DANH SÁCH SẢN PHẨM---------------------------- */
+/* ----------------HIỂN THỊ NỌI DUNG TRONG MẢNG ADMIN---------------------------- */
 
 .list_product-heading {
   margin-top: 10px;
@@ -302,13 +310,13 @@ header {
 }
 
 .btn-function i,
-.btn-function a{
-   font-size: 14px;
-   color: #000;
+.btn-function a,
+.btn-function {
+  font-size: 14px;
+  color: #000;
 }
 
-
-/* ------------ các form ------------ */
+/* ------------ GIAO DIỆN CÁC FORM ------------ */
 .form-group + .form-group {
   margin-top: 20px;
 }
@@ -319,7 +327,7 @@ header {
 .form-group input {
   padding: 8px 8px;
   font-size: 1.4rem;
-  margin-top: 5px;  
+  margin-top: 5px;
 }
 
 .form-group input:focus {
@@ -334,4 +342,40 @@ header {
   font-size: 1.2rem;
   margin-top: 5px;
   font-weight: 600;
+}
+
+/* ------------------- TRANG DASHBOARD ADMIN ---------------- */
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 0 15px;
+  margin-top: 30px;
+}
+
+.dashboard-item {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 20px 0;
+}
+
+.dashboard-item_img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.dashboard-item_name {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.dashboard-item_name:hover {
+  text-decoration: underline;
+}
+
+.dashboard-item_quantity {
+  margin-top: 15px;
+  font-size: 1.8rem;
 }

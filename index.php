@@ -2,6 +2,7 @@
     session_start();
     ob_start();
     require_once("./Model/ConnectDatabase.php");
+    require_once("./Model/admin/Dashboard.php");
     require_once("./Model/admin/Products.php");
     require_once("./Model/admin/Accounts.php");
     require_once("./Model/admin/Comments.php");
@@ -14,7 +15,9 @@
     require_once("./Controllers/admin/ControllerStatistics.php");
     require_once("./Controllers/admin/ControllerCategory.php");
     require_once("./Controllers/admin/ControllerOrders.php");
+    require_once("./Controllers/admin/ControllerDashboard.php");
     require_once("./modules/function/function.php");
+    $cDashboard = new ControllerDashboard();
     $cProducts = new ControllerProducts();
     $cAccounts = new ControllerAccounts();
     $cComments = new ControllerComments();
@@ -38,21 +41,47 @@
             case "addCategory":
                 $cCategory->addCategory();
                 break;
+            case "editCategory":
+                $cCategory->editCategory();
+                break;
+            case "deleteCategory":
+                $cCategory->deleteCategory();
+                break;
             // handle product
             case 'addProduct':
                $cProducts->addProducts();
                 break;
-            case 'editProducts':
+            case 'editProduct':
                 # code...
                 break;
-            case 'deleteProducts':
+            case 'deleteProduct':
                 # code...
                 break;
             case 'listProduct':
                 $cProducts->listProducts();
                 break;
+            // handle accounts
+            case "listAccounts":
+                $cAccounts->listAccounts();
+                break;
+            case "addAccounts":
+                $cAccounts->addAccounts();
+                break;
+            case "editAccounts":
+                $cAccounts->editAccounts();
+                break;
+            case "deleteAccounts":
+                $cAccounts->deleteAccounts();
+                break;
+                // handle accounts
+            case "listComments":
+                $cComments->listComments();
+                break;
+            case "deleteComments":
+                $cComments->deleteComments();
+                break;
             default:
-                require_once("./Views/admin/dashboard.php");
+                $cDashboard->renderDashboard();
                 break;
         }
         ?>
