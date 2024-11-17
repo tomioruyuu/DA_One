@@ -1,14 +1,23 @@
 <?php 
     class ControllerOrders {
+        public function listOrders() {
+            $mOrders = new Orders();
+            $listOrders = $mOrders->getAllOrders();
+            require_once("./Views/admin/Orders.php/listOrders.php");
+        }
+
         public function updateOrders(){
             
         }
 
-        public function deleteOrders(){
-            $id = $_GET["id"];
-            $mOrders = new Orders();
-            $mOrders->deleteOrders($id);
-            require_once("location: index.php");
+        public function deleteOrders() {
+            if(isset($_GET["id"])) {
+                $id = $_GET["id"];
+                $mOrders = new Orders();
+                $mOrders->deleteOrders($id);
+                header("location: ?act=listOrders");
+            }
+
         }
     }
 ?>
