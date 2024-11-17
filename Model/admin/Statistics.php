@@ -32,12 +32,11 @@
         }
     
     
-    $Statistics = new ProductStatistics();
-    
-    $totalProducts = $Statistics->getTotalProducts();
-    $totalQuantity = $Statistics->getTotalQuantity();
-    $averagePrice = $Statistics->getAveragePrice();
-    $productsByCategory = $Statistics->getProductsByCategory();
+    // $Statistics = new ProductStatistics();
+    // $totalProducts = $Statistics->getTotalProducts();
+    // $totalQuantity = $Statistics->getTotalQuantity();
+    // $averagePrice = $Statistics->getAveragePrice();
+    // $productsByCategory = $Statistics->getProductsByCategory();
     }
     
 ?>
