@@ -1,6 +1,8 @@
 <?php 
     session_start();
     ob_start();
+
+    // phần model
     require_once("./Model/ConnectDatabase.php");
     require_once("./Model/admin/Dashboard.php");
     require_once("./Model/admin/Products.php");
@@ -9,6 +11,9 @@
     require_once("./Model/admin/Statistics.php");
     require_once("./Model/admin/Category.php");
     require_once("./Model/admin/Orders.php");
+    require_once("./Model/client/Home.php");
+    
+    // phần controller
     require_once("./Controllers/admin/ControllerProducts.php");
     require_once("./Controllers/admin/ControllerAccounts.php");
     require_once("./Controllers/admin/ControllerComments.php");
@@ -16,7 +21,10 @@
     require_once("./Controllers/admin/ControllerCategory.php");
     require_once("./Controllers/admin/ControllerOrders.php");
     require_once("./Controllers/admin/ControllerDashboard.php");
+    require_once("./Controllers/client/ControllerHome.php");
     require_once("./modules/function/function.php");
+    
+    // tạo đối tượng controller trong phần admin
     $cDashboard = new ControllerDashboard();
     $cProducts = new ControllerProducts();
     $cAccounts = new ControllerAccounts();
@@ -24,8 +32,13 @@
     $cStatistics = new ControllerStatistics();
     $cCategory = new ControllerCategory();
     $cOrders = new ControllerOrders();
-    $_SESSION["username"] = "admin";
+    $cHome = new ControllerHome();
 
+    // tạo đối tượng controller trong phần clients
+
+    $_SESSION["username"] = "guest";
+
+    // điều hướng giao diện
     $act = $_GET["act"] ?? "/";
     if(isset($_SESSION["username"]) && $_SESSION["username"] == "admin") {
         require_once("./modules/templates/header-admin.php");
@@ -88,11 +101,23 @@
         </div>
         <?php
     }
-    else if(isset($_SESSION["username"]) && $_SESSION["username"] == "guest") {
-        require_once("./modules/templates/header-guest.php");
-    }
+    // else if(isset($_SESSION["username"]) && $_SESSION["username"] == "guest") {
+    //     require_once("./modules/templates/header-guest.php");
+
+    // }
     else {
         require_once("./modules/templates/header-guest.php");
+        ?>
+        <div class="d-flex align-content-center">
+        <?php
+        switch($act) {
+
+            default:
+                $cHome->renderHomePage();
+        }
+        ?>
+        </div>
+        <?php
     }
 ?>
 
