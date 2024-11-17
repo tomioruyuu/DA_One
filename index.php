@@ -80,6 +80,13 @@
             case "deleteComments":
                 $cComments->deleteComments();
                 break;
+            // handle orders
+            case "listOrders":
+                $cOrders->listOrders();
+                break;
+            case "deleteOrders":
+                $cOrders->deleteOrders();
+                break;
             default:
                 $cDashboard->renderDashboard();
                 break;
