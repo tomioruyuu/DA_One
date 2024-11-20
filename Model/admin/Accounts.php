@@ -30,7 +30,7 @@
         }
     
         public function updateAccounts($id,$fullname, $username, $password, $email, $phone, $address){
-            $sql="UPDATE `users` SET `fullname`='?',`username`='?',`password`='?',`email`='?',`phone`='?',`address`='?' WHERE `id`='?'";
+            $sql="UPDATE `users` SET `fullname`=?,`username`=?,`password`=?,`email`=?,`phone`=?,`address`=? WHERE `id`=?";
             $this->connect->setQuery($sql);
             $check = $this->connect->loadData([$fullname, $username, $password, $email, $phone, $address,$id]);
             if($check){
@@ -39,7 +39,7 @@
         }
     
         public function deleteAccounts($id){
-            $sql="DELETE FROM `users` id=$id";
+            $sql="DELETE FROM `users` id=";
             $this->connect->setQuery($sql);
             return $this->connect->execute([$id]);
         }

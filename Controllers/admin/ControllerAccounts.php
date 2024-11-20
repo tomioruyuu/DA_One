@@ -66,7 +66,7 @@
             $errors = [];
             if(isset($_POST["btn-submit"])) {
                 try {
-                    $id =$_POST["id"];
+                    $id =$_GET["id"];
                     $fullname = $_POST["fullname"];
                     $username = $_POST["username"];
                     $password = $_POST["password"];
