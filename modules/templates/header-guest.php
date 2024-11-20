@@ -56,7 +56,7 @@
                     <div class="header-action header-cart">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="quantity">
-                            <p>20</p>
+                            <p>0</p>
                         </div>
                     </div>
                 </div>

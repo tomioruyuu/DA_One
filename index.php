@@ -36,7 +36,7 @@
 
     // tạo đối tượng controller trong phần clients
 
-    $_SESSION["username"] = "admin";
+    $_SESSION["username"] = "guest";
 
     // điều hướng giao diện
     $act = $_GET["act"] ?? "/";
