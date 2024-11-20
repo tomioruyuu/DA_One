@@ -1,5 +1,4 @@
-
-<div class="main-content">
+<div class="col-10 body-content mt20">
         <div class="list_product-heading df-center align-items-center">
             <div class="title-line"></div>
             <h1 class="title-list-product">Thêm tài khoản</h1>
