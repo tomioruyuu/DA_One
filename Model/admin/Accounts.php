@@ -9,7 +9,7 @@
         }
 
         public function insertAccounts($id, $fullname, $username, $password, $email, $phone, $address){
-            $sql="INSERT INTO `users`(`id`,`fullname`, `username`, `password`, `email`, `phone`, `address`) VALUES ('?','?','?','?','?','?')";
+            $sql="INSERT INTO `users`(`id`,`fullname`, `username`, `password`, `email`, `phone`, `address`) VALUES (?,?,?,?,?,?,?)";
             $this->connect->setQuery($sql);
             $check = $this->connect->loadData([$id, $fullname, $username, $password, $email, $phone, $address]);
             if($check){
@@ -29,8 +29,8 @@
             return $this->connect->loadData([$id],false);
         }
     
-        public function updateAccounts($id,$fullname, $username, $password, $email, $phone, $address){
-            $sql="UPDATE `users` SET `fullname`='?',`username`='?',`password`='?',`email`='?',`phone`='?',`address`='?' WHERE `id`='?'";
+        public function updateAccounts($fullname, $username, $password, $email, $phone, $address,$id){
+            $sql="UPDATE `users` SET `fullname`=?,`username`=?,`password`=?,`email`=?,`phone`=?,`address`=? WHERE `id`=?";
             $this->connect->setQuery($sql);
             $check = $this->connect->loadData([$fullname, $username, $password, $email, $phone, $address,$id]);
             if($check){
@@ -38,10 +38,10 @@
             }
         }
     
-        public function deleteAccounts($id){
-            $sql="DELETE FROM `users` id=$id";
+        public function delete($id) {
+            $sql = "DELETE FROM `users` WHERE id = ?";
             $this->connect->setQuery($sql);
-            return $this->connect->execute([$id]);
+            return $this->connect->loadData([$id]);
         }
     }
 ?>

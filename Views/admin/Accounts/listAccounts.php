@@ -34,11 +34,10 @@
                                     <i class="fa-solid fa-pen-to-square"></i>
                                     <a href="?act=editAccounts&id=<?php echo $accounts->id ?>">Sửa</a>
                                 </button>
-                                <button onclick="confirmDelete('?act=deleteAccounts&id=<?php echo $accounts->id ?>')" class="btn btn-danger btn-function">
+                                <button onclick="confirmDelete('?act=deleteAccounts&id=<?= $accounts->id ?>')" class="btn btn-danger btn-function">
                                     <i class="fa-solid fa-trash"></i>
                                     Xóa
                                 </button>
-                            </td>
                         </tr>
 
                         <?php

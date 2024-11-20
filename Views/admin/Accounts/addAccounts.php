@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="cta-form mt20">
-            <button type="submit" class="btn btn-form " value="them" name="btn-submit">Thêm tài khoản</button>
+            <button type="submit" class="btn btn-form " value="them" name="btn-submit-addAccounts">Thêm tài khoản</button>
             <a href="?act=listAccounts" class="btn btn-form">Danh sách</a>
         </div>
 

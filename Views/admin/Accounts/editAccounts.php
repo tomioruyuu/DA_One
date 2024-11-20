@@ -1,8 +1,3 @@
-<?php
-if(is_array($accounts)){
-    extract($accounts);
-}
-?>
 <div class="main-content">
         <div class="list_product-heading df-center align-items-center">
             <div class="title-line"></div>
@@ -10,43 +5,43 @@ if(is_array($accounts)){
         </div>
     <form action="" method="post" enctype="multipart/form-data" class="add-product_content mt20">
         <div class="block">
-            <?php
-                if(isset($_SESSION['username'])&& is_array($_SESSION['username'])){
-                    extract($_SESSION['username']);
-                }
-            ?>
             <div class="form-group">
-                <label for="">ID</label>
-                <input type="text" placeholder="Tự động" value="<?=$id?>" disabled class="form-control">
+                <label for="">Mã tài khoản</label>
+                <input type="number" placeholder="Tự động" disabled class="form-control" value="<?php echo $itemAccount->id ?>">
             </div>
 
             <div class="form-group">
                 <label for="">Họ tên</label>
-                <input type="text" name="fullname" value="<?=$fullname?>"  class="form-control">
+                <input type="text" name="fullname"  class="form-control" value="<?php echo $itemAccount->fullname ?>">
             </div>
+
             <div class="form-group">
                 <label for="">Tên đăng nhập</label>
-                <input type="text" name="username" value="<?=$username?>"  class="form-control">
+                <input type="text" name="username"  class="form-control" value="<?php echo $itemAccount->username ?>">
             </div>
+
             <div class="form-group">
                 <label for="">Mật khẩu</label>
-                <input type="text" name="password" value="<?=$password?>" class="form-control">
+                <input type="text" name="password"  class="form-control" value="<?php echo $itemAccount->password ?>">
             </div>
+
             <div class="form-group">
-                <label for="">Email</label>
-                <input type="email" name="email" value="<?=$email?>"  class="form-control">
+                <label for="">Mật khẩu</label>
+                <input type="email" name="email"  class="form-control" value="<?php echo $itemAccount->email ?>">
             </div>
+
             <div class="form-group">
                 <label for="">SĐT</label>
-                <input type="text" name="phone"  value="<?=$phone?>" class="form-control">
+                <input type="number" name="phone"  class="form-control" value="<?php echo $itemAccount->phone ?>">
             </div>
+
             <div class="form-group">
                 <label for="">Địa chỉ</label>
-                <input type="text" name="address" value="<?=$address?>"  class="form-control">
+                <input type="text" name="address"  class="form-control" value="<?php echo $itemAccount->address ?>">
             </div>
         </div>
         <div class="cta-form mt20">
-            <button type="submit" class="btn btn-form " value="them" name="btn-submit">Thêm tài khoản</button>
+            <button type="submit" class="btn btn-form " value="them" name="btn-submit-accounts">Sửa tài khoản</button>
             <a href="?act=listAccounts" class="btn btn-form">Danh sách</a>
         </div>
 
