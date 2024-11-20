@@ -32,10 +32,10 @@
                                     <i class="fa-solid fa-pen-to-square"></i>
                                     <a href="?act=editProduct&id=<?php echo $item->id ?>">Sửa</a>
                                 </button>
-                                <button onclick="confirmDelete('?act=deleteProduct&id=<?php echo $item->id ?>')" class="btn btn-danger btn-function">
+                                <p onclick="confirmDelete('?act=deleteProduct&id=<?php echo $item->id ?>')" class="btn btn-danger btn-function">
                                     <i class="fa-solid fa-trash"></i>
                                     Xóa
-                                </button>
+                                </p>
                             </td>
                         </tr>
                         <?php
@@ -53,7 +53,11 @@
 
 <script>
     function confirmDelete(url) {
+        console.log(url);
+        
         if(window.confirm("Bạn có chắc chắn muốn xóa không")) {
+            console.log(url);
+            
             window.location = url
         }
     }

@@ -60,19 +60,21 @@
             case "deleteCategory":
                 $cCategory->deleteCategory();
                 break;
+                
             // handle product
             case 'addProduct':
                $cProducts->addProducts();
                 break;
             case 'editProduct':
-                # code...
+                $cProducts->updateProduct();
                 break;
             case 'deleteProduct':
-                # code...
+                $cProducts->deleteProduct();
                 break;
             case 'listProduct':
                 $cProducts->listProducts();
                 break;
+
             // handle accounts
             case "listAccounts":
                 $cAccounts->listAccounts();

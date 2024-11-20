@@ -7,8 +7,8 @@
             $this->connect = new ConnectDatabase();
         }
 
-        public function getAllProducts() {
-            
+        public function getCateImg() {
+            $sql = "";
         }
     }
 ?>

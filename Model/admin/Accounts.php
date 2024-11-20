@@ -38,8 +38,8 @@
             }
         }
     
-        public function delete($id) {
-            $sql = "DELETE FROM `users` WHERE id = ?";
+        public function deleteAccounts($id){
+            $sql="DELETE FROM `users` id=";
             $this->connect->setQuery($sql);
             return $this->connect->loadData([$id]);
         }
