@@ -26,5 +26,6 @@
             $this->connect->setQuery($sql);
             return $this->connect->loadData([$id, $name, $price, $img, $quantity, $description, $id_category]);
         }
+
     }
 ?>
