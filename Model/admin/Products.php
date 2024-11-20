@@ -33,6 +33,7 @@
             return $this->connect->loadData([$id, $name, $price, $img, $quantity, $description, $id_category]);
         }
 
+
         public function handleUpdateProduct( $name, $price, $img, $quantity, $description, $id_category, $id) {
             $sql = "UPDATE `products` SET `name`=?,`price`=?,`img`=?,`quantity`=?,`desciption`=?,`id_category`=? WHERE id = ?";
             $this->connect->setQuery($sql);
@@ -44,5 +45,6 @@
             $this->connect->setQuery($sql);
             return $this->connect->loadData([$id]);
         }
+
     }
 ?>

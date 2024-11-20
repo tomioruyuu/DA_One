@@ -8,9 +8,8 @@
 
         public function addAccounts() {
             $errors = [];
-            if(isset($_POST["btn-submit"])) {
+            if(isset($_POST["btn-submit-addAccounts"])) {
                 try {
-                    $id =$_POST["id"];
                     $fullname = $_POST["fullname"];
                     $username = $_POST["username"];
                     $password = $_POST["password"];
@@ -40,7 +39,7 @@
 
                     if(empty($errors)) {
                         $mAccounts = new Accounts();
-                        $check = $mAccounts->insertAccounts($id, $fullname, $username, $password, $email, $phone, $address);
+                        $check = $mAccounts->insertAccounts(null,$fullname, $username, $password, $email, $phone, $address);
                         if($check) {
                             header("location: ?act=addAccounts");
                             exit;
@@ -61,10 +60,10 @@
             if(isset($_GET["id"])) {
                 $id = $_GET["id"];
                 $mAccounts = new Accounts();
-                $itemAccounts = $mAccounts->getAccountsById($id);
+                $itemAccount = $mAccounts->getAccountsById($id);
             }
             $errors = [];
-            if(isset($_POST["btn-submit"])) {
+            if(isset($_POST["btn-submit-accounts"])) {
                 try {
                     $id =$_GET["id"];
                     $fullname = $_POST["fullname"];
@@ -96,11 +95,8 @@
 
                     if(empty($errors)) {
                         $mAccounts = new Accounts();
-                        $check = $mAccounts->updateAccounts($id,$fullname, $username, $password, $email, $phone, $address);
-                        if($check) {
-                            header("location: ?act=listAccounts");
-                            exit;
-                        }   
+                        $check = $mAccounts->updateAccounts($fullname, $username, $password, $email, $phone, $address, $id);
+                        header("location: ?act=listAccounts");
                     }
                     
                 } catch (PDOException $e) {
@@ -116,7 +112,7 @@
             if(isset($_GET["id"])) {
                 $id = $_GET["id"];
                 $mAccounts = new Accounts();
-                $mAccounts->deleteAccounts($id);
+                $mAccounts->delete($id);
                 header("location: ?act=listAccounts");
             }
 
