@@ -50,8 +50,7 @@
                         $errors["id_category"]["required"] = "Vui lòng nhập trường này";
                     }
 
-                    if(empty($errors)) {
-                        
+                    if(empty($errors)) { 
                         move_uploaded_file($_FILES["img"]["tmp_name"], $img);
                         $check = $mProducts->handleAddProduct(null, $name, $price, $img, $quantity, $description, $id_category);
                         direct("?act=listProduct");

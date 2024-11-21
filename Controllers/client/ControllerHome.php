@@ -4,6 +4,7 @@
             $mHome = new Home();
             $listCateWithImg = $mHome->getCateImg();
             $listProduct = $mHome->getProduct();
+            $listProductLuxury = $mHome->getProductLuxury();
             require_once("./Views/client/homepage.php");
         }
     }
