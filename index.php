@@ -13,6 +13,7 @@
     require_once("./Model/admin/Orders.php");
     require_once("./Model/client/Home.php");
     require_once("./Model/client/Footer.php");
+    require_once("./Model/client/Login.php");
     
     // phần controller
     require_once("./Controllers/admin/ControllerProducts.php");
@@ -24,6 +25,7 @@
     require_once("./Controllers/admin/ControllerDashboard.php");
     require_once("./Controllers/client/ControllerHome.php");
     require_once("./Controllers/client/ControllerFooter.php");
+    require_once("./Controllers/client/ControllerLogin.php");
     require_once("./modules/function/function.php");
     
     // tạo đối tượng controller trong phần admin
@@ -36,9 +38,8 @@
     $cOrders = new ControllerOrders();
     $cHome = new ControllerHome();
     $cFooter = new ControllerFooter();
+    $cLogin = new ControllerLogin();
     // tạo đối tượng controller trong phần clients
-
-    $_SESSION["username"] = "guest";
 
     // điều hướng giao diện
     $act = $_GET["act"] ?? "/";
@@ -122,14 +123,15 @@
         <div class="d-flex align-content-center">
         <?php
         switch($act) {
-
+            case "login":
+                $cLogin->handleLogin();
+                break;
             default:
                 $cHome->renderHomePage();
-                ?>
-                </div>
-                <?php
-                $cFooter->renderFooter();
         }
+        ?>
+        </div>
+        <?php
        
     }
 ?>
@@ -137,5 +139,7 @@
 
 <?php 
     ob_end_flush();
+    $cFooter->renderFooter();
+
     // require_once("./modules/templates/footer.php")
 ?>

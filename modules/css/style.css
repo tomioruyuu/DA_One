@@ -17,6 +17,10 @@ textarea {
   font-family: "Poppins", sans-serif;
 }
 
+ul {
+  padding: 0;
+}
+
 /* common code */
 .heading-section {
   text-transform: uppercase;
@@ -169,8 +173,42 @@ header {
   font-size: 16px;
 }
 
+.header-user {
+  position: relative;
+}
+
 .header-user .user-guest {
   font-size: 30px;
+}
+
+.header-user:hover  .user-cta{
+  display: block;
+}
+
+.user-cta {
+  display: none;
+  padding: 0;
+  border-radius: 5px;
+  position: absolute;
+  top: 30px;
+  left: -20px;
+  background-color: #fff;
+  width: 150px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow: hidden;
+}
+
+.user-cta li a {
+  font-size: 1.4rem;
+  display: inline-block;
+  width: 100%;
+  padding: 5px 10px;
+  transition: 0.2s linear;
+}
+
+.user-cta li:hover a {
+  color: #fff;
+  background-color: var(--primary-color);
 }
 
 .header-cart {
@@ -636,7 +674,7 @@ footer {
 }
 
 .footer-coumn1 {
-  width: 320px;
+  width: 400px;
 }
 
 .footer-column .title {
@@ -647,6 +685,7 @@ footer {
 .desc-g7 {
   color: #fff;
   font-size: 1.4rem;
+  text-align: justify;
 }
 
 .info-g7 i,
@@ -711,5 +750,54 @@ footer .copy_right {
   text-align: center;
   font-size: 1.2rem;
   padding: 20px;
+  color: #fff;
+}
+
+/* Phần đăng nhập */
+.body-login {
+  width: 500px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.body-login h1 {
+  text-align: center;
+  padding: 20px 0;
+  background-color: var(--primary-color);
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.form-login {
+  padding: 10px 15px 50px;
+}
+
+.login-btn {
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  width: 100%;
+  outline: none;
+  border-radius: 999px;
+  transition: 0.2s linear;
+}
+
+.forgot-pass {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.forgot-pass:hover {
+  text-decoration: underline;
+}
+
+.login-btn:hover {
+  cursor: pointer;
+  background-color: var(--primary-color);
   color: #fff;
 }

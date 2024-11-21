@@ -30,7 +30,7 @@
                     </li>
                     
                 </section>
-                <section class="footer-coumn1 footer-column">
+                <section class="footer-coumn2 footer-column">
                     <ul>
                     <h3 class="title">Hỗ trợ khách hàng</h3>
                         <li>
@@ -47,7 +47,7 @@
                         </li>
                     </ul>
                 </section>
-                <section class="footer-coumn2 footer-column">
+                <section class="footer-coumn3 footer-column">
                     <ul>
                         <h3 class="title">Liên kêt</h3>
                         <?php 

@@ -71,6 +71,17 @@
                     </form>
                     <div class="header-action header-user">
                         <i class="fa-regular fa-circle-user user-guest"></i>
+                        <ul class="user-cta">
+                            <li>
+                                <a href="?act=login">Đăng nhập</a>
+                            </li>
+                            <li>
+                                <a href="?act=register">Đăng ký</a>
+                            </li>
+                            <li>
+                                <a href="?act=logout">Đăng xuất</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="header-action header-cart">
                         <i class="fa-solid fa-cart-shopping"></i>
