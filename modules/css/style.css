@@ -43,6 +43,9 @@ textarea {
 .ml-10 {
   margin-left: 10px;
 }
+.mt-10 {
+  margin-top: 10px;
+}
 
 .mr-10 {
   margin-right: 10px;
@@ -619,4 +622,94 @@ header {
 .img-luxury_main img:hover {
   scale: 1.1;
   opacity: 0.8;
+}
+
+/* ----------------- phần footer ---------------- */
+footer {
+  background: #2a2a2a;
+  margin-top: 70px;
+}
+.footer-content {
+  padding: 50px 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-coumn1 {
+  width: 320px;
+}
+
+.footer-column .title {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.desc-g7 {
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.info-g7 i,
+.info-g7 p,
+.info-g7 a {
+  margin: 0;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.info-g7 i {
+  width: 14px;
+  margin-right: 10px;
+}
+
+.footer-column li {
+  margin-top: 10px;
+}
+
+.footer-column li a {
+  color: #fff;
+  font-size: 1.4rem;
+  display: inline-block;
+}
+
+.footer-column li a:hover {
+  text-decoration: underline;
+}
+
+.social .title {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.social-media__logo img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.social-cta input {
+  font-size: 1.2rem;
+}
+
+.btn-footer {
+  font-size: 1.2rem;
+  background-color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.btn-footer:hover {
+  opacity: 0.8;
+}
+
+footer .copy_right {
+  background-color: #222;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 20px;
+  color: #fff;
 }

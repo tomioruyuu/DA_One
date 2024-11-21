@@ -24,5 +24,11 @@
             $this->connect->setQuery($sql);
             return $this->connect->loadData();
         }
+
+        public function getCategory() {
+            $sql = "SELECT * FROM `category`";
+            $this->connect->setQuery($sql);
+            return $this->connect->loadData();
+        }
     }
 ?>

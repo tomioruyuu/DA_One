@@ -44,7 +44,7 @@
     <!-- Bộ sự tập mới -->
     <section class="new-collection">
         <h1 class="heading-section">Bộ sưu tập mới</h1>
-        <div class="collection-list mb-20">
+        <div class="collection-list mb-20 mt20">
             <?php 
                 foreach ($listProduct as $item) {
                     ?>
