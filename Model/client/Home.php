@@ -14,7 +14,13 @@
         }
 
         public function getProduct() {
-            $sql = "SELECT name, price, img FROM `products` ORDER BY id DESC";
+            $sql = "SELECT id, name, price, img FROM `products` ORDER BY id DESC";
+            $this->connect->setQuery($sql);
+            return $this->connect->loadData();
+        }
+
+        public function getProductLuxury() {
+            $sql = "SELECT id, name, price, img FROM `products` ORDER BY id ASC LIMIT 9";
             $this->connect->setQuery($sql);
             return $this->connect->loadData();
         }

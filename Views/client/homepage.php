@@ -10,7 +10,7 @@
             <img src="./modules/images/slide_4_img.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-            <img src=". /modules/images/slide_3_img.jpg" class="d-block w-100" alt="...">
+            <img src="./modules/images/slide_3_img.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
@@ -48,20 +48,53 @@
             <?php 
                 foreach ($listProduct as $item) {
                     ?>
-                    <div class="collection-list_item">
-                        <img src="<?php echo $item->img ?>" alt="">
-                        <div class="collection-list_item-body">
-                            <p class="name"><?php echo $item->name ?></p>
-                            <p class="price">₫<?php echo $item->price ?></p>
-                            <div class="cart d-flex align-items-center">
-                                <p>Thêm vào giỏ hàng</p>    
-                                <i class="fa-solid fa-cart-shopping ml-10"></i>
+                    <a href="?act=productDetail&id=<?php echo $item->id ?>">
+                        <div class="collection-list_item">
+                            <img src="<?php echo $item->img ?>" alt="">
+                            <div class="collection-list_item-body">
+                                <p class="name"><?php echo $item->name ?></p>
+                                <p class="price">₫<?php echo $item->price ?></p>
+                                <div class="cart d-flex align-items-center">
+                                    <p>Thêm vào giỏ hàng</p>    
+                                    <i class="fa-solid fa-cart-shopping ml-10"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     <?php
                 }
             ?>
         </div>
+        <a class="btn btn-more mt20">Xem thêm</a>
     </section>
+
+    <!-- phần luxury -->
+     <section class="luxury d-flex justify-content-between">
+        <div class="luxury-info ">
+            <h1 class="heading-section">Sản phẩm nổi bật</h1>
+            <div class="luxury-body d-flex align-items-center mt-30">
+                <div class="luxury-list">
+                    <?php 
+                        foreach ($listProductLuxury as $item) {
+                            ?>
+                            <a href="?act=productDetail&id=<?php echo $item->id ?>">
+                                <div class="item d-flex">
+                                    <img src="<?php echo $item->img ?>" alt="">
+                                    <div class="item-body">
+                                        <p class="name"><?php echo $item->name ?></p>
+                                        <p class="price">₫<?php echo $item->price ?></p>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <?php
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="img-luxury_main">
+            <img class="ml-10" src="./modules/images/luxury.jpg" alt="">
+        </div>
+     </section>
 </div>

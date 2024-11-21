@@ -37,7 +37,7 @@
         public function handleUpdateProduct( $name, $price, $img, $quantity, $description, $id_category, $id) {
             $sql = "UPDATE `products` SET `name`=?,`price`=?,`img`=?,`quantity`=?,`desciption`=?,`id_category`=? WHERE id = ?";
             $this->connect->setQuery($sql);
-            return $this->connect->loadData([ $name, $price, $img, $quantity, $description, $id_category, $id]);
+            return $this->connect->loadData([$name, $price, $img, $quantity, $description, $id_category, $id]);
         }
 
         public function handleDeleteProduct($id) {

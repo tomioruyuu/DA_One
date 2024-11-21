@@ -101,7 +101,7 @@ header {
   position: sticky;
   padding: 5px;
   top: 0;
-  z-index: 1;
+  z-index: 10;
 }
 
 .header-content {
@@ -475,6 +475,11 @@ header {
   border-radius: 10px;
   overflow: hidden;
   padding-bottom: 20px;
+  transition: 0.2s linear;
+}
+
+.collection-list_item:hover {
+  transform: translateY(-5px);
 }
 
 .collection-list_item img {
@@ -531,4 +536,87 @@ header {
   font-size: 1.4rem;
   transition: 0.2s linear;
   color: var(--primary-color);
+}
+
+.new-collection .btn-more {
+  padding: 10px 15px;
+  border: 1px solid #000;
+  font-size: 1.6rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  transition: 0.2s linear;
+}
+
+.new-collection .btn-more:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* phần luxury */
+.luxury {
+  margin-top: 70px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.luxury-info {
+  padding: 20px;
+}
+
+.luxury-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.luxury-list .item {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  transition: 0.2s linear;
+}
+
+.luxury-list .item:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: none;
+}
+
+.luxury-list .item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.luxury-list .item-body .name {
+  width: 195px;
+  font-size: 1.4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.luxury-list .item-body .price {
+  font-size: 1.4rem;
+  color: red;
+  margin-left: 5px;
+}
+
+.img-luxury_main {
+  width: 410px;
+  height: 490px;
+  overflow: hidden;
+}
+
+.img-luxury_main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: 0.3s linear;
+}
+
+.img-luxury_main img:hover {
+  scale: 1.1;
+  opacity: 0.8;
 }
