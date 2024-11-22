@@ -181,7 +181,7 @@ header {
   font-size: 30px;
 }
 
-.header-user:hover  .user-cta{
+.header-user:hover .user-cta {
   display: block;
 }
 
@@ -279,8 +279,10 @@ header {
 .admin-navigate li:hover i {
   color: #fff;
 }
-.admin-navigate li:hover a {
+.admin-navigate li:hover a,
+.admin-navigate li:hover p{
   color: #fff;
+  cursor: pointer;
 }
 
 .admin-navigate li.active i,
@@ -296,13 +298,20 @@ header {
   transition: 0.2s linear;
 }
 
-.admin-navigate li a {
+.admin-navigate li a,
+.admin-navigate li p {
   display: inline-block;
   width: 80%;
   padding: 12px 0;
   font-size: 1.4rem;
   margin-left: 10px;
   transition: 0.2s linear;
+}
+
+.admin-navigate li button {
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 /* ----------------HIỂN THỊ NỌI DUNG TRONG MẢNG ADMIN---------------------------- */

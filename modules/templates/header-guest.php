@@ -84,10 +84,12 @@
                         </ul>
                     </div>
                     <div class="header-action header-cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <div class="quantity">
-                            <p>0</p>
-                        </div>
+                        <a href="?act=cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div class="quantity">
+                                <p>0</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
                         
