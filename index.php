@@ -116,6 +116,12 @@ if (isset($_SESSION["username"]) && $_SESSION["username"] == "admin") {
             case "listOrders":
                 $cOrders->listOrders();
                 break;
+            case "addOrders":
+                $cOrders->addOrders();
+                break;
+            case "editOrders":
+                $cOrders->editOrders();
+                break;
             case "deleteOrders":
                 $cOrders->deleteOrders();
                 break;
