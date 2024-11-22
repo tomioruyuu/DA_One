@@ -1,12 +1,12 @@
 <div class="col-2 right-section">
     <div class="header-admin-user df-center flex-column">
         <div class="header-action header-user">
-        <i class="fa-regular fa-circle-user user-admin" style="color: #ffffff;"></i>
+            <i class="fa-regular fa-circle-user user-admin" style="color: #ffffff;"></i>
         </div>
         <p class="admin-name-user">Tên người dùng</p>
     </div>
     <ul class="admin-navigate">
-        <li  >
+        <li>
             <i class="fa-solid fa-gauge "></i>
             <a href="?act=dashboard">Trang chủ</a>
         </li>
@@ -40,8 +40,16 @@
         </li>
         <li>
             <i class="fa-solid fa-right-from-bracket"></i>
-            <a href="?act=logout">Đăng xuất</a>
+            <p onclick="check('?act=logout')">Đăng xuất</p>
         </li>
 
     </ul>
 </div>
+
+<script>
+    function check(url) {
+        if (window.confirm("Bạn có chắc chắn muốn đăng xuất không")) {
+            window.location = url
+        }
+    }
+</script>
