@@ -7,8 +7,8 @@
         <table class="table table-hover table-striped">
             <thead>
                 <th></th>
-                <th>mã sản phẩm</th>
-                <th>Tên</th>
+                <th>Mã sản phẩm</th>
+                <th class="table-product_name">Tên</th>
                 <th>Giá</th>
                 <th>Hình ảnh</th>
                 <th>Số lượng</th>
@@ -16,7 +16,31 @@
                 <th>Chức năng</th>
             </thead>
             <tbody>
-                <tr></tr>
+                <?php 
+                    foreach ($listProducts as $item) {
+                        ?>
+                        <tr class="">
+                            <td><input type="checkbox" ></td>
+                            <td><?php echo $item->id ?></td>
+                            <td ><?php echo $item->name ?></td>
+                            <td><?php echo $item->price ?></td>
+                            <td><img class="table-product_img" src="<?php echo $item->img ?>" alt=""></td>
+                            <td><?php echo $item->quantity ?></td>
+                            <td class="table-product_desc"><?php echo $item->desciption ?></td>
+                            <td>
+                                <button class="btn btn-warning btn-function">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <a href="?act=editProduct&id=<?php echo $item->id ?>">Sửa</a>
+                                </button>
+                                <p onclick="confirmDelete('?act=deleteProduct&id=<?php echo $item->id ?>')" class="btn btn-danger btn-function">
+                                    <i class="fa-solid fa-trash"></i>
+                                    Xóa
+                                </p>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                ?>
             </tbody>
         </table>
         <div class="list-cta">
@@ -26,3 +50,15 @@
         </div>
     </form>
 </div>
+
+<script>
+    function confirmDelete(url) {
+        console.log(url);
+        
+        if(window.confirm("Bạn có chắc chắn muốn xóa không")) {
+            console.log(url);
+            
+            window.location = url
+        }
+    }
+</script>

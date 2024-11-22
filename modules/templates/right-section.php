@@ -1,9 +1,9 @@
 <div class="col-2 right-section">
-    <div class="header-admin-user df-center flex-column mr-20">
+    <div class="header-admin-user df-center flex-column">
         <div class="header-action header-user">
-            <i class="fa-regular fa-circle-user user-admin"></i>
+        <i class="fa-regular fa-circle-user user-admin" style="color: #ffffff;"></i>
         </div>
-        <p class="admin-name-user">Ngo Van Thanh</p>
+        <p class="admin-name-user">Tên người dùng</p>
     </div>
     <ul class="admin-navigate">
         <li  >
