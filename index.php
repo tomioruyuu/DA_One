@@ -14,6 +14,7 @@
     require_once("./Model/client/Home.php");
     require_once("./Model/client/Footer.php");
     require_once("./Model/client/Login.php");
+    require_once("./Model/client/Register.php");
     
     // phần controller
     require_once("./Controllers/admin/ControllerProducts.php");
@@ -22,10 +23,12 @@
     require_once("./Controllers/admin/ControllerStatistics.php");
     require_once("./Controllers/admin/ControllerCategory.php");
     require_once("./Controllers/admin/ControllerOrders.php");
+    require_once("./Controllers/admin/ControllerLogout.php");
     require_once("./Controllers/admin/ControllerDashboard.php");
     require_once("./Controllers/client/ControllerHome.php");
     require_once("./Controllers/client/ControllerFooter.php");
     require_once("./Controllers/client/ControllerLogin.php");
+    require_once("./Controllers/client/ControllerRegister.php");
     require_once("./modules/function/function.php");
     
     // tạo đối tượng controller trong phần admin
@@ -36,10 +39,12 @@
     $cStatistics = new ControllerStatistics();
     $cCategory = new ControllerCategory();
     $cOrders = new ControllerOrders();
+    $cLogoutAmin = new ControllerLogoutAdmin();
+    // tạo đối tượng controller trong phần clients
     $cHome = new ControllerHome();
     $cFooter = new ControllerFooter();
     $cLogin = new ControllerLogin();
-    // tạo đối tượng controller trong phần clients
+    $cRegister = new ControllerRegister();
 
     // điều hướng giao diện
     $act = $_GET["act"] ?? "/";
@@ -50,6 +55,9 @@
         <?php
         require_once("./modules/templates/right-section.php");
         switch ($act) {
+            // hanđle logout
+            case "logout":
+                $cLogoutAmin->handleLogout();
             // handle category
             case "listCategory":
                 $cCategory->listCategory();
@@ -105,6 +113,7 @@
             case "deleteOrders":
                 $cOrders->deleteOrders();
                 break;
+
             default:
                 $cDashboard->renderDashboard();
                 break;
@@ -126,6 +135,10 @@
             case "login":
                 $cLogin->handleLogin();
                 break;
+            case "register": 
+                $cRegister->handleRegister();
+                break;
+
             default:
                 $cHome->renderHomePage();
         }

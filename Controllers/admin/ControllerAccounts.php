@@ -10,7 +10,6 @@
             $errors = [];
             if(isset($_POST["btn-submit-addAccounts"])) {
                 try {
-                    $fullname = $_POST["fullname"];
                     $username = $_POST["username"];
                     $password = $_POST["password"];
                     $email = $_POST["email"];
@@ -18,9 +17,7 @@
                     $address = $_POST["address"];
                     $errors = [];
 
-                    if (!$fullname) {
-                        $errors["fullname"] = "Vui lòng nhập họ tên";
-                    }
+       
                     if (!$username) {
                         $errors["username"] = "Vui lòng nhập tên đăng nhập";
                     }
@@ -39,7 +36,7 @@
 
                     if(empty($errors)) {
                         $mAccounts = new Accounts();
-                        $check = $mAccounts->insertAccounts(null,$fullname, $username, $password, $email, $phone, $address);
+                        $check = $mAccounts->insertAccounts(null, $username, $password, $email, $phone, $address);
                         if($check) {
                             header("location: ?act=addAccounts");
                             exit;
@@ -66,7 +63,6 @@
             if(isset($_POST["btn-submit-accounts"])) {
                 try {
                     $id =$_GET["id"];
-                    $fullname = $_POST["fullname"];
                     $username = $_POST["username"];
                     $password = $_POST["password"];
                     $email = $_POST["email"];
@@ -74,9 +70,6 @@
                     $address = $_POST["address"];
                     $errors = [];
 
-                    if (!$fullname) {
-                        $errors["fullname"] = "Vui lòng nhập họ tên";
-                    }
                     if (!$username) {
                         $errors["username"] = "Vui lòng nhập tên đăng nhập";
                     }
@@ -95,7 +88,7 @@
 
                     if(empty($errors)) {
                         $mAccounts = new Accounts();
-                        $check = $mAccounts->updateAccounts($fullname, $username, $password, $email, $phone, $address, $id);
+                        $check = $mAccounts->updateAccounts($username, $password, $email, $phone, $address, $id);
                         header("location: ?act=listAccounts");
                     }
                     
@@ -112,7 +105,7 @@
             if(isset($_GET["id"])) {
                 $id = $_GET["id"];
                 $mAccounts = new Accounts();
-                $mAccounts->delete($id);
+                $mAccounts->deleteAccounts($id);
                 header("location: ?act=listAccounts");
             }
 
