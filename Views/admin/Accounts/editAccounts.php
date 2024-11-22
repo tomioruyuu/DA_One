@@ -1,8 +1,8 @@
 <div class="main-content body-content mt20">
-        <div class="list_product-heading df-center align-items-center">
-            <div class="title-line"></div>
-            <h1 class="title-list-product">Sửa tài khoản</h1>
-        </div>
+    <div class="list_product-heading df-center align-items-center">
+        <div class="title-line"></div>
+        <h1 class="title-list-product">Sửa tài khoản</h1>
+    </div>
     <form action="" method="post" enctype="multipart/form-data" class="add-product_content mt20">
         <div class="block">
             <div class="form-group">
@@ -11,33 +11,28 @@
             </div>
 
             <div class="form-group">
-                <label for="">Họ tên</label>
-                <input type="text" name="fullname"  class="form-control" value="<?php echo $itemAccount->fullname ?>">
-            </div>
-
-            <div class="form-group">
                 <label for="">Tên đăng nhập</label>
-                <input type="text" name="username"  class="form-control" value="<?php echo $itemAccount->username ?>">
+                <input type="text" name="username" class="form-control" value="<?php echo $itemAccount->username ?>">
             </div>
 
             <div class="form-group">
                 <label for="">Mật khẩu</label>
-                <input type="text" name="password"  class="form-control" value="<?php echo $itemAccount->password ?>">
+                <input type="text" name="password" class="form-control" value="<?php echo $itemAccount->password ?>">
             </div>
 
             <div class="form-group">
                 <label for="">Mật khẩu</label>
-                <input type="email" name="email"  class="form-control" value="<?php echo $itemAccount->email ?>">
+                <input type="email" name="email" class="form-control" value="<?php echo $itemAccount->email ?>">
             </div>
 
             <div class="form-group">
                 <label for="">SĐT</label>
-                <input type="number" name="phone"  class="form-control" value="<?php echo $itemAccount->phone ?>">
+                <input type="number" name="phone" class="form-control" value="<?php echo $itemAccount->phone ?>">
             </div>
 
             <div class="form-group">
                 <label for="">Địa chỉ</label>
-                <input type="text" name="address"  class="form-control" value="<?php echo $itemAccount->address ?>">
+                <input type="text" name="address" class="form-control" value="<?php echo $itemAccount->address ?>">
             </div>
         </div>
         <div class="cta-form mt20">

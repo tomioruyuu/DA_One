@@ -11,8 +11,13 @@
             <input type="password" class="form-control" required name="pass">
         </div>
         <p class="forgot-pass mt-10">Quên mật khẩu?</p>
-        <button class=" login-btn mt20" name="login-btn">Đăng nhập</button>
+        <!-- <button type="submit" class=" login-btn mt20" name="login-btn" value="login">Đăng nhập</button> -->
+         <input type="submit" class="login-btn mt20" name="login-btn" value="Đăng nhập">
         <hr>
 
     </form>
 </div>
+
+<script>
+
+</script>

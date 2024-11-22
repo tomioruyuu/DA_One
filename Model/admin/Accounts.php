@@ -8,10 +8,10 @@
             $this->connect = new ConnectDatabase();
         }
 
-        public function insertAccounts($id, $fullname, $username, $password, $email, $phone, $address){
+        public function insertAccounts($id, $username, $password, $email, $phone, $address){
             $sql="INSERT INTO `users`(`id`,`fullname`, `username`, `password`, `email`, `phone`, `address`) VALUES (?,?,?,?,?,?,?)";
             $this->connect->setQuery($sql);
-            $check = $this->connect->loadData([$id, $fullname, $username, $password, $email, $phone, $address]);
+            $check = $this->connect->loadData([$id, $username, $password, $email, $phone, $address]);
             if($check){
                 return true;
             }
@@ -29,10 +29,10 @@
             return $this->connect->loadData([$id],false);
         }
     
-        public function updateAccounts($fullname, $username, $password, $email, $phone, $address,$id){
-            $sql="UPDATE `users` SET `fullname`=?,`username`=?,`password`=?,`email`=?,`phone`=?,`address`=? WHERE `id`=?";
+        public function updateAccounts($username, $password, $email, $phone, $address,$id){
+            $sql="UPDATE `users` SET `username`=?,`password`=?,`email`=?,`phone`=?,`address`=? WHERE `id`=?";
             $this->connect->setQuery($sql);
-            $check = $this->connect->loadData([$fullname, $username, $password, $email, $phone, $address,$id]);
+            $check = $this->connect->loadData([$username, $password, $email, $phone, $address,$id]);
             if($check){
                 return true;
             }

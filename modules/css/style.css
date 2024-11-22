@@ -801,3 +801,20 @@ footer .copy_right {
   background-color: var(--primary-color);
   color: #fff;
 }
+
+/* phần đăng ký */
+.register-cta p {
+  font-size: 1.2rem;
+  padding: 0;
+  margin: 0;
+  margin-right: 5px;
+}
+
+.register-cta a {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.register-cta a:hover {
+  text-decoration: underline;
+}
