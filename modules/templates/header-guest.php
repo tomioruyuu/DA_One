@@ -51,7 +51,7 @@
                         <a class="active" href="?act=/">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="">Sản phẩm</a>
+                        <a href="?act=product">Sản phẩm</a>
                     </li>
                     <li>
                         <a href="">Giá tốt</a>

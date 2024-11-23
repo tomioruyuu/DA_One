@@ -39,26 +39,22 @@
             </div>
             <div class="search-list mb-20 col-10">
                 <?php
-                if (empty($listProduct)) {
-                    echo "Không có sản phẩm đáp ứng nhu cầu của bạn";
-                } else {
-                    foreach ($listProduct as $item) {
+                foreach ($listProduct as $item) {
                 ?>
-                        <a class="item" href="?act=productDetail&id=<?php echo $item->id ?>">
-                            <div class="collection-list_item">
-                                <img src="<?php echo $item->img ?>" alt="">
-                                <div class="collection-list_item-body">
-                                    <p class="name"><?php echo $item->name ?></p>
-                                    <p class="price">₫<?php echo $item->price ?></p>
-                                    <div class="cart d-flex align-items-center">
-                                        <p>Thêm vào giỏ hàng</p>
-                                        <i class="fa-solid fa-cart-shopping ml-10"></i>
-                                    </div>
+                    <a class="item" href="?act=productDetail&id=<?php echo $item->id ?>">
+                        <div class="collection-list_item">
+                            <img src="<?php echo $item->img ?>" alt="">
+                            <div class="collection-list_item-body">
+                                <p class="name"><?php echo $item->name ?></p>
+                                <p class="price">₫<?php echo $item->price ?></p>
+                                <div class="cart d-flex align-items-center">
+                                    <p>Thêm vào giỏ hàng</p>
+                                    <i class="fa-solid fa-cart-shopping ml-10"></i>
                                 </div>
                             </div>
-                        </a>
+                        </div>
+                    </a>
                 <?php
-                    }
                 }
                 ?>
             </div>
