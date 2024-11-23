@@ -1,3 +1,5 @@
+<?php require_once("./modules/templates/header-guest.php") ?>
+
 <div class="body-login">
     <h1>Đăng nhập tài khoản</h1>
     <form  class="form-login" action="" method="post" enctype="multipart/form-data"> 

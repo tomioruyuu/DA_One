@@ -30,6 +30,11 @@ ul {
 .content-body {
   width: 90%;
 }
+
+.pr-50 {
+  padding-right: 50px;
+}
+
 .mr-20 {
   margin-right: 20px;
 }
@@ -191,7 +196,7 @@ header {
   border-radius: 5px;
   position: absolute;
   top: 30px;
-  left: -50px;
+  left: -150%;
   background-color: #fff;
   width: 200px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

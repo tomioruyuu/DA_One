@@ -1,3 +1,5 @@
+<?php require_once("./modules/templates/header-guest.php") ?>
+
 <div class="main-content">
     <!--  slide show -->
     <section class="banner">
@@ -98,3 +100,4 @@
         </div>
      </section>
 </div>
+
