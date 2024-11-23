@@ -2,6 +2,8 @@
 session_start();
 ob_start();
 
+// index phần admin
+
 if (!isset($_SESSION["username"]) || $_SESSION["username"] !== "admin") {
     header("Location: http://localhost/DA_One/?act=login");
     exit();
