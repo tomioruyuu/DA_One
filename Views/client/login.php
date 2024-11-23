@@ -2,7 +2,7 @@
 
 <div class="body-login">
     <h1>Đăng nhập tài khoản</h1>
-    <form  class="form-login" action="" method="post" enctype="multipart/form-data"> 
+    <form class="form-login" action="" method="post" enctype="multipart/form-data">
         <?php getSmg($smg, $smg_type) ?>
         <div class="form-group">
             <label for="">Email</label>
@@ -14,9 +14,9 @@
         </div>
         <p class="forgot-pass mt-10">Quên mật khẩu?</p>
         <!-- <button type="submit" class=" login-btn mt20" name="login-btn" value="login">Đăng nhập</button> -->
-         <input type="submit" class="login-btn mt20" name="login-btn" value="Đăng nhập">
+        <input type="submit" class="login-btn mt20" name="login-btn" value="Đăng nhập">
         <hr>
-
+        <p class="cta-login">Bạn chưa có tài khoản? <a href="?act=register">Đăng kí</a></p>
     </form>
 </div>
 
