@@ -48,7 +48,7 @@
 
                 <ul class="navigation df-center">
                     <li>
-                        <a class="active" href="?acr=/">Trang chủ</a>
+                        <a class="active" href="?act=/">Trang chủ</a>
                     </li>
                     <li>
                         <a href="">Sản phẩm</a>
@@ -65,9 +65,9 @@
                 </ul>
 
                 <div class="header-other df-center">
-                    <form class="header-action header-search df-center">
-                        <input type="search" name="search-btn" id="search-btn" placeholder="Tìm kiếm...">
-                        <button type="submit" class="search-btn">
+                    <form action="?act=search" method="post" enctype="multipart/form-data" class="header-action header-search df-center">
+                        <input type="search" name="keySearch" id="search-btn" placeholder="Tìm kiếm..." required>
+                        <button type="submit" class="search-btn" name="search-btn">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </form>
@@ -111,9 +111,6 @@
                                 </li>
                                 <li>
                                     <a href="?act=register">Đăng ký</a>
-                                </li>
-                                <li>
-                                    <a href="?act=logout">Đăng xuất</a>
                                 </li>
                             <?php
                             }
