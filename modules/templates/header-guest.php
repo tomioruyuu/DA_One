@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="./modules/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="./modules/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./modules/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="./modules/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./modules/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./modules/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="./modules/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./modules/favicon/favicon-16x16.png">
@@ -31,22 +32,23 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- link css -->
-    <link rel="stylesheet" href="modules/css/reset.css" >
+    <link rel="stylesheet" href="modules/css/reset.css">
     <link rel="stylesheet" href="modules/css/bootstrap.min.css">
-    <link rel="stylesheet" href="modules/css/style.css?ver=<?php echo rand()?>">
+    <link rel="stylesheet" href="modules/css/style.css?ver=<?php echo rand() ?>">
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <div class="main-content">
-            <div class="header-content df-center" >
+            <div class="header-content df-center">
                 <div class="header-logo">
                     <img class="img" src="modules\images\logog7-removebg-preview.png" alt="">
                 </div>
 
                 <ul class="navigation df-center">
                     <li>
-                        <a class="active" href="">Trang chủ</a>
+                        <a class="active" href="?acr=/">Trang chủ</a>
                     </li>
                     <li>
                         <a href="">Sản phẩm</a>
@@ -59,7 +61,7 @@
                     </li>
                     <li>
                         <a href="">Hệ thống cửa hàng</a>
-                    </li> 
+                    </li>
                 </ul>
 
                 <div class="header-other df-center">
@@ -70,17 +72,54 @@
                         </button>
                     </form>
                     <div class="header-action header-user">
+                        <?php
+                        if (isset($_SESSION["username"])) {
+                        ?>
+
+                        <?php
+                        }
+                        ?>
                         <i class="fa-regular fa-circle-user user-guest"></i>
                         <ul class="user-cta">
-                            <li>
-                                <a href="?act=login">Đăng nhập</a>
-                            </li>
-                            <li>
-                                <a href="?act=register">Đăng ký</a>
-                            </li>
-                            <li>
-                                <a href="?act=logout">Đăng xuất</a>
-                            </li>
+
+                            <?php
+                            if (isset($_SESSION["username"]) && $_SESSION["username"] == "admin") {
+                            ?>
+                                <li>
+                                    <a href="http://localhost/DA_One/admin">Quản trị website</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost/DA_One/">Giao diện người dùng</a>
+                                </li>
+                                <li>
+                                    <a href="?act=logout">Đăng xuất</a>
+                                </li>
+                            <?php
+                            } else if (isset($_SESSION["username"]) && $_SESSION["username"] == "guest") {
+                            ?>
+                                <li>
+                                    <a href="">Tài khoản</a>
+                                </li>
+                                <li>
+                                    <a href="?act=logout">Đăng xuất</a>
+                                </li>
+                            <?php
+                            } else {
+                            ?>
+                                <li>
+                                    <a href="?act=login">Đăng nhập</a>
+                                </li>
+                                <li>
+                                    <a href="?act=register">Đăng ký</a>
+                                </li>
+                                <li>
+                                    <a href="?act=logout">Đăng xuất</a>
+                                </li>
+                            <?php
+                            }
+                            ?>
+
+
                         </ul>
                     </div>
                     <div class="header-action header-cart">
@@ -92,10 +131,11 @@
                         </a>
                     </div>
                 </div>
-                        
-                
+
+
             </div>
         </div>
     </header>
 </body>
+
 </html>

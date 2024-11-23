@@ -22,7 +22,7 @@ class ControllerLogin
                         if ($email == "admin@gmail.com") {
                             $_SESSION["username"] = "admin";
                             $_SESSION["email"] = $email;
-                            direct("?act=/");
+                            direct("http://localhost/DA_One/admin");
                         } else {
                             $_SESSION["username"] = "guest";
                             $_SESSION["email"] = $email;
@@ -43,9 +43,6 @@ class ControllerLogin
         }
         $smg = getFlashData("smg");
         $smg_type = getFlashData("smg_type");
-        echo "<pre>";
-        print_r($_SESSION);
-        echo "</pre>";
 
 
         require_once("./Views/client/login.php");
