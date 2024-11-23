@@ -27,6 +27,7 @@ require_once("./Controllers/client/ControllerLogout.php");
 require_once("./Controllers/client/ControllerSearch.php");
 require_once("./Controllers/client/ControllerProductClient.php");
 
+// index phần người dùng
 
 // tạo đối tượng controller trong phần clients
 $cHome = new ControllerHome();
