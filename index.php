@@ -11,6 +11,7 @@ require_once("./Model/client/Register.php");
 require_once("./Model/client/DetailProduct.php");
 require_once("./Model/client/Cart.php");
 require_once("./Model/client/Search.php");
+require_once("./Model/client/ProductClient.php");
 
 
 // phần controller client
@@ -24,8 +25,7 @@ require_once("./Controllers/client/ControllerCart.php");
 require_once("./Controllers/client/ControllerHeader.php");
 require_once("./Controllers/client/ControllerLogout.php");
 require_once("./Controllers/client/ControllerSearch.php");
-
-
+require_once("./Controllers/client/ControllerProductClient.php");
 
 
 // tạo đối tượng controller trong phần clients
@@ -38,6 +38,7 @@ $cCart = new ControllerCart();
 $cHeader = new ControllerHeader();
 $cSearch = new ControllerSearch();
 $cLogoutClient = new ControllerLogoutClient();
+$cProductClient = new ControllerProductClient();
 
 // điều hướng giao diện
 $act = $_GET["act"] ?? "/";
@@ -55,11 +56,15 @@ switch ($act) {
     case "cart":
         $cCart->renderCart();
         break;
-    case "logout" :
+    case "logout":
         $cLogoutClient->handleLogout();
     case "search":
         $cSearch->HandleSearch();
         break;
+    case "product":
+        $cProductClient->renderProduct();
+        break;
+
     default:
         $cHome->renderHomePage();
 }
