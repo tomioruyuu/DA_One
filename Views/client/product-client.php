@@ -5,10 +5,6 @@
             <div class="filter col-2">
                 <h2 class="title">Lọc sản phẩm</h2>
                 <form action="?act=search" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="">Nhập</label>
-                        <input type="text" name="keySearch" class="form-control">
-                    </div>
 
                     <div class="form-group">
                         <label for="">Danh mục</label>
