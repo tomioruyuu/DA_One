@@ -1066,3 +1066,110 @@ textarea {
   gap: 15px;
   padding: 0 15px;
 }
+
+/* DetailProct */
+.detail-contetnt{
+  background-color: #dad5d5;
+}
+.detail-r{
+  border: 5px;
+  border-radius: 1px solid gray;
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 20px;
+}
+.detailt-name{
+  font-size: 50px;
+}
+
+.detailt-price{
+  background-color: #fafafa;
+}
+.detailt-price p{
+  font-size: 30px;
+}
+
+.detailt-number p{
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.btn-white {
+  border: 1px solid gray;  
+  color: black;  
+}
+
+.detailt-button a{
+  font-size: 20px;
+}
+.detailt-button a:hover{
+  background-color: #e53935;
+}
+
+
+.detail-text-item {
+  flex: 1; 
+  margin: 0 10px;
+}
+
+.detail-r img{
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 15px;
+}
+
+.hr-thick {
+  border: 0;
+  height: 5px;
+  background-color: #000; 
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.detail-row {
+  display: flex;
+  align-items: center;
+}
+.detail-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+.detail-form-group {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.detail-form-control {
+  width: 100%;
+  padding-right: 50px;
+  padding-left: 10px;
+  height: 50px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+}
+.detail-send-icon {
+  position: absolute;
+  right: 15px;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.detail-send-icon:hover {
+  background-color: #0056b3;
+}
+
