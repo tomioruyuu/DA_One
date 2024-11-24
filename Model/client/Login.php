@@ -10,7 +10,7 @@ class Login
 
     public function getEmails()
     {
-        $sql = "SELECT email, password FROM `users`";
+        $sql = "SELECT email,username, password FROM `users`";
         $this->connect->setQuery($sql);
         return $this->connect->loadData();
     }

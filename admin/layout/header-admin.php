@@ -40,15 +40,16 @@
 
 <body>
     <header>
+        
         <div class="header-content df-center ml-20">
             <div class="header-logo">
                 <img class="img" src="modules\images\logog7-removebg-preview.png" alt="">
             </div>
             <div class="header-action header-user pr-50">
                 <?php
-                if (isset($_SESSION["username"])) {
+                if (isset($_SESSION["name_user"]) && $_SESSION["name_user"]) {
                 ?>
-
+                    <p class="name_user"><?php echo $_SESSION["name_user"] ?></p>
                 <?php
                 }
                 ?>
