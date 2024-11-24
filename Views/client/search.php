@@ -5,10 +5,6 @@
             <div class="filter col-2">
                 <h2 class="title">Lọc sản phẩm</h2>
                 <form action="?act=search" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="">Nhập</label>
-                        <input type="text" name="keySearch" class="form-control">
-                    </div>
 
                     <div class="form-group">
                         <label for="">Danh mục</label>
@@ -32,6 +28,15 @@
                             <option value="price < 200"> Dưới 200.000</option>
                             <option value="price >= 200 and price < 500">200.000 - 500.000</option>
                             <option value="price >= 500">Trên 500.000</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Sắp xếp</label>
+                        <select name="sort" id="" class="form-control">
+                            <option value="">Lựa chọn</option>
+                            <option value="DESC">Giảm dần</option>
+                            <option value="ASC">Tăng dần</option>
                         </select>
                     </div>
                     <button class="filter-btn mt-10" name="search-btn">Lọc</button>

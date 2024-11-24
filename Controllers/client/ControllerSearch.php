@@ -8,8 +8,9 @@
                     $key = isset($_POST["keySearch"]) ? $_POST["keySearch"] : "";
                     $id_category = isset($_POST["category"]) ? $_POST["category"] : "";
                     $price = isset($_POST["price"]) ? $_POST["price"] : "";
-                    if(!empty($key || $id_category || $price)) {
-                        $listProduct = $mSearch->getProductInSearch($key, $id_category, $price);
+                    $sort = isset($_POST["sort"]) ? $_POST["sort"] : "";
+                    if(!empty($key || $id_category || $price || $sort)) {
+                        $listProduct = $mSearch->getProductInSearch($key, $id_category, $price, $sort);
                     }
                 } catch (Exception $e) {
                     echo $e->getMessage();

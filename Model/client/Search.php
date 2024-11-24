@@ -19,7 +19,7 @@ class Search
     }
 
 
-    public function getProductInSearch($key, $id_category, $price)
+    public function getProductInSearch($key, $id_category, $price, $sort)
     {
         $sql = "SELECT * FROM products WHERE 1=1"; 
 
@@ -33,6 +33,10 @@ class Search
 
         if ($key) {
             $sql .= " AND name LIKE '%$key%'";
+        }
+
+        if($sort) {
+            $sql .= " ORDER BY price $sort";
         }
 
     
