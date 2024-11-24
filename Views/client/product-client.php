@@ -34,6 +34,15 @@
                             <option value="price >= 500">Trên 500.000</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="">Sắp xếp</label>
+                        <select name="sort" id="" class="form-control">
+                            <option value="">Lựa chọn</option>
+                            <option value="DESC">Giảm dần</option>
+                            <option value="ASC">Tăng dần</option>
+                        </select>
+                    </div>
                     <button class="filter-btn mt-10" name="search-btn">Lọc</button>
                 </form>
             </div>
