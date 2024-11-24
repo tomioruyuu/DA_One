@@ -73,15 +73,14 @@
                     </form>
                     <div class="header-action header-user">
                         <?php
-                        if (isset($_SESSION["username"])) {
+                        if (isset($_SESSION["name_user"]) && $_SESSION["name_user"]) {
                         ?>
-
+                            <p class="name_user"><?php echo $_SESSION["name_user"] ?></p>
                         <?php
                         }
                         ?>
                         <i class="fa-regular fa-circle-user user-guest"></i>
                         <ul class="user-cta">
-
                             <?php
                             if (isset($_SESSION["username"]) && $_SESSION["username"] == "admin") {
                             ?>

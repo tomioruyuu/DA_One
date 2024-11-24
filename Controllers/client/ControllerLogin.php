@@ -19,7 +19,9 @@ class ControllerLogin
                 foreach ($listEmail as $item) {
                     if ($item->email == $email && $item->password == $pass) {
                         $authenticated = true;
-                        if ($email == "admin@gmail.com" ) {
+                        $_SESSION["name_user"] = $item->username;
+
+                        if ($email == "admin@gmail.com") {
                             $_SESSION["username"] = "admin";
                             $_SESSION["email"] = $email;
                             direct("http://localhost/DA_One/admin");

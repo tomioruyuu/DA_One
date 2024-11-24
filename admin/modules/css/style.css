@@ -180,6 +180,14 @@ header {
 
 .header-user {
   position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header-action .name_user {
+  font-size: 1.4rem;
+  margin: 0;
+  margin-right: 10px;
 }
 
 .header-user .user-guest {
@@ -196,7 +204,7 @@ header {
   border-radius: 5px;
   position: absolute;
   top: 30px;
-  left: -150%;
+  left: -50%;
   background-color: #fff;
   width: 200px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -285,7 +293,7 @@ header {
   color: #fff;
 }
 .admin-navigate li:hover a,
-.admin-navigate li:hover p{
+.admin-navigate li:hover p {
   color: #fff;
   cursor: pointer;
 }
