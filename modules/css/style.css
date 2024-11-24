@@ -175,6 +175,14 @@ header {
 
 .header-user {
   position: relative;
+  display: flex;
+  align-items: center ;
+}
+
+.header-action .name_user {
+  font-size: 1.4rem;
+  margin: 0;
+  margin-right: 10px;
 }
 
 .header-user .user-guest {
@@ -1007,7 +1015,6 @@ textarea {
   opacity: 0.8;
 }
 
-
 /* phần tìm lọc */
 .search {
   margin-top: 50px;
@@ -1018,11 +1025,10 @@ textarea {
   gap: 15px;
 }
 
-
 .filter {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius:0 0 8px 8px;
-  height: 340px;
+  border-radius: 0 0 8px 8px;
+  height: 350px;
 }
 
 .filter form {
@@ -1047,7 +1053,6 @@ textarea {
   background-color: #fff;
   transition: 0.2s linear;
   font-size: 1.4rem;
-
 }
 
 .filter-btn:hover {
@@ -1167,3 +1172,4 @@ fieldset {
 .detail-send-icon:hover {
   background-color: #0056b3;
 }
+
