@@ -1,7 +1,5 @@
 <?php require_once("./modules/templates/header-guest.php") ?>
-<?php
-
-?>
+<?php ?>
 
 <div class="main-content">
     <div class="detail-content product-container">
@@ -25,22 +23,23 @@
                     <label for="">Size:</label>
                     <select name="size" id="">
                         <option value="">Chọn size</option>
-                        <option value="36">36</option>
-                        <option value="37">37</option>
-                        <option value="38">38</option>
-                        <option value="39">39</option>
-                        <option value="40">40</option>
-                        <option value="41">41</option>
-                        <option value="42">42</option>
-                        <option value="43">43</option>
+                        <option value="36">S</option>
+                        <option value="37">M</option>
+                        <option value="38">L</option>
+                        <option value="39">XL</option>
+                        <option value="40">XXL</option>
+                        
                     </select>
+                    <p class="text-danger">
+                        <?php show_err_message($errors, "size") ?>
+                    </p>
                 </div>
 
-                <div class="quantity-group d-flex align-items-center">
+                <div class="quantity-group d-flex align-items-center form-group">
                     <h2>Số lượng:</h2>
                     <div class="form-group detail-quantity d-flex align-items-center">
                         <p onclick="decrease(id)">-</p>
-                        <input class="quantity-product" type="text" value="1">
+                        <input class="quantity-product" type="text" value="1" name="quantity" min="1">
                         <p onclick="increase(id)">+</p>
                     </div>
                 </div>
@@ -63,9 +62,10 @@
                 </div>
 
                 <div class="detail-cta">
-                    <button class=" add-to-cart">Thêm vào giỏ</button>
+                    <button class=" add-to-cart" name="btn_add-cart">Thêm vào giỏ</button>
                     <button class="buy-now">Mua ngay</button>
                 </div>
+
             </form>
 
         </div>
@@ -143,5 +143,29 @@
     // Hàm thay đổi ảnh chính khi click vào ảnh phụ
     function changeImage(imageSrc) {
         document.getElementById('main-image').src = imageSrc;
+    }
+
+    // Hàm tăng số lượng
+    function increase(id) {
+        const quantityInput = document.querySelector('.quantity-product');
+        let currentValue = parseInt(quantityInput.value);
+
+        if (!isNaN(currentValue)) {
+            quantityInput.value = currentValue + 1;
+        } else {
+            quantityInput.value = 1;
+        }
+    }
+
+    // Hàm giảm số lượng
+    function decrease(id) {
+        const quantityInput = document.querySelector('.quantity-product');
+        let currentValue = parseInt(quantityInput.value);
+
+        if (!isNaN(currentValue) && currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        } else {
+            quantityInput.value = 1; // Không cho giảm dưới 1
+        }
     }
 </script>

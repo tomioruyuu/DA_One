@@ -13,20 +13,21 @@ class ControllerDetail
             // lấy dữ liệu về sản phẩm tương tự
             $id_category = $product->id_category;
             $listSimilarProduct = $mDetail->getSimilarProduct($id_category, $id_products);
-            
+
 
             // lấy ra các bình luận của sản phẩm
             $comments = $mDetail->getComment($id_products);
 
+            // thực hiện chức năng bình luận
             if (isset($_POST["send_comment"])) {
                 if (isset($_SESSION["username"])) {
                     $content = $_POST["content"];
-                    $email = isset($_SESSION["email"]) ? $_SESSION["email"]: "";
+                    $email = isset($_SESSION["email"]) ? $_SESSION["email"] : "";
                     $user = $mDetail->getUserByEmail($email);
                     if ($content) {
                         $id_users = $user->id;
                         $date = date("Y-m-d H:i:s");
-                        $mDetail->insertComment(null, $id_users, $id_products , $content, $date);
+                        $mDetail->insertComment(null, $id_users, $id_products, $content, $date);
                         direct("?act=productDetail&id=$id_products");
                     }
                 } else {
@@ -34,9 +35,30 @@ class ControllerDetail
                     setFlashData("smg_type", "danger");
                 }
             }
-        } catch (\Throwable $e) {
-        }
 
+            // thực hiện chức năng thêm sản phẩm vào giỏ hàng
+            if (isset($_POST["btn_add-cart"])) {
+                $quantity = $_POST["quantity"];
+                $price = $product->price;
+                $size = $_POST["size"];
+                $id_products = isset($_GET["id"]) ? $_GET["id"] : "";
+                $errors = [];
+                if (!trim($size)) {
+                    $errors["size"]["required"] = "Vui lòng chọn kích thước ";
+                }
+
+                if (empty($errors)) {
+                    $mDetail->insertCart(null, $id_products, $quantity, $price, $size);
+                    direct("?act=productDetail&id=$id_products");
+                    echo "<script> alert('Thêm vào giỏ hàng thành công')</script>";
+                } else {
+                    setFlashData("errors", $errors);
+                }
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        $errors = getFlashData("errors");
         $smg = getFlashData("smg");
         $smg_type = getFlashData("smg_type");
         require_once("./Views/client/detailProduct.php");
