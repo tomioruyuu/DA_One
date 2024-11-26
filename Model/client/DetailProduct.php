@@ -42,4 +42,10 @@ class detailProduct
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_category, $id_products]);
     }
+
+    public function insertCart($id, $id_products, $quantity, $price, $size) {
+        $sql = "INSERT INTO `cart`(`id`, `id_products`, `quantity`, `price`, `size`) VALUES (?,?,?,?,?)";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id, $id_products, $quantity, $price, $size]);
+    }
 }
