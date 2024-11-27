@@ -15,6 +15,7 @@
                     <th>Sản phẩm</th>
                     <th>Nội dung bình luận</th>
                     <th>Ngày bình luận</th>
+                    <th>Chức năng</th>
                 </thead>
                 <tbody>
                     <?php

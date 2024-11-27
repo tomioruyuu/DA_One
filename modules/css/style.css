@@ -26,6 +26,9 @@ ul {
   text-transform: uppercase;
   font-weight: 600;
 }
+.alert {
+  margin: 0;
+}
 
 .content-body {
   width: 90%;
@@ -771,7 +774,8 @@ footer .copy_right {
 }
 
 /* Phần đăng nhập */
-.body-login {
+.body-login,
+.body-register {
   width: 500px;
   margin-top: 100px;
   margin-bottom: 100px;
@@ -780,7 +784,8 @@ footer .copy_right {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.body-login h1 {
+.body-login h1,
+.body-register h1 {
   text-align: center;
   padding: 20px 0;
   background-color: var(--primary-color);
@@ -792,7 +797,8 @@ footer .copy_right {
   padding: 10px 15px 50px;
 }
 
-.login-btn {
+.login-btn,
+.register-btn {
   padding: 5px 10px;
   background-color: #fff;
   border: 1px solid var(--primary-color);
@@ -813,7 +819,8 @@ footer .copy_right {
   text-decoration: underline;
 }
 
-.login-btn:hover {
+.login-btn:hover,
+.register-btn:hover {
   cursor: pointer;
   background-color: var(--primary-color);
   color: #fff;
@@ -832,6 +839,26 @@ footer .copy_right {
 }
 
 /* phần đăng ký */
+.body-register {
+  width: 700px;
+}
+
+.form-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.login-item {
+  flex: 1;
+}
+
+.register-btn {
+  width: 100px;
+  margin-left: 100%;
+  transform: translateX(-100%);
+}
+
 .register-cta p {
   font-size: 1.2rem;
   padding: 0;
@@ -847,6 +874,8 @@ footer .copy_right {
 .register-cta a:hover {
   text-decoration: underline;
 }
+
+
 
 /* Phần giỏ hàng */
 .cart-container {
@@ -866,20 +895,18 @@ footer .copy_right {
 
 .cart-cart h2 {
   margin-top: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
+  margin-bottom: 25px;
 }
 
 .cart-cart-item {
   display: flex;
-  align-items: center;
-  margin: 20px 0;
   padding: 10px;
   border-bottom: 1px solid #ddd;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.cart-product-img {
+.cart_product-img {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -893,6 +920,13 @@ footer .copy_right {
 
 .cart-product-info p {
   font-size: 1.5rem;
+  margin: 0;
+}
+
+.cart-product-info .size {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 3px 0;
 }
 
 .cart-product-info .name {
@@ -1095,7 +1129,6 @@ footer .copy_right {
   flex: 1.5;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 20px;
-  height: 500px;
 }
 
 .product-info h1 {

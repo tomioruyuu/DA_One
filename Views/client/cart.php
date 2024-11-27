@@ -2,24 +2,34 @@
 <div class="main-content">
     <div class="cart-container">
         <div class="cart-cart col-9">
-            <h2>Giỏ hàng của bạn</h2>
-            <div class="cart-cart-item ">
-                <img src="shirt.jpg" alt="Áo sơ mi" class="cart_product-img">
-                <div class="cart-product-info">
-                    <p class="name">Áo sơ mi trắng nam công sở dài tay Merriman mã THMOL495</p>
-                    <p class="size"></p>
-                    <p class="cart-price">399,000₫</p>
-                </div>
-                <div class="item-cart_cta">
-                    <p class="text-center">Xóa</p>
-                    <div class="cart-quantity">
-                        <button onclick="decrease(id)">-</button>
-                        <input class="quantity-product" type="text" value="1">
-                        <button onclick="increase(id)">+</button>
+            <h2>Giỏ hàng của bạn <i class="fa-solid fa-cart-shopping"></i></h2>
+            <?php
+            if (!empty($listProduct)) {
+                foreach ($listProduct as $index => $item) {
+            ?>
+
+                    <div class="cart-cart-item ">
+                        <img src="<?php echo $item->img ?>" alt="Áo sơ mi" class="cart_product-img">
+                        <div class="cart-product-info">
+                            <p class="name"><?php echo $item->name ?></p>
+                            <p class="size">Kích thước: <?php echo $item->size ?></p>
+                            <p class="cart-price">₫<?php echo $item->price ?></p>
+                        </div>
+                        <div class="item-cart_cta">
+                            <p onclick="confirmDelete('?act=deleteCart&id=<?php echo $item->id ?>')" class="text-center">Xóa</p>
+                            <div class="cart-quantity">
+                                <button onclick="decrease(<?php echo $item->id ?>, <?php echo $index ?> )">-</button>
+                                <input class="quantity-product" type="text" value="1" min="1" name="quantity">
+                                <button onclick="increase(<?php echo $item->id ?>, <?php echo $index ?>)">+</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="note">
+
+            <?php
+                }
+            }
+            ?>
+            <div class="note mt-30">
                 <h2>Ghi chú đơn hàng</h2>
                 <textarea placeholder=""></textarea>
             </div>
@@ -28,7 +38,7 @@
             <h2>Thông tin đơn hàng</h2>
             <div class="total-section">
                 <span class="label">Tổng tiền:</span>
-                <span class="total-price">390,273₫</span>
+                <span class="total-price">₫<?php echo $totalPrice ? $totalPrice : 0 ?></span>
             </div>
 
             <hr class="divider">
@@ -45,15 +55,41 @@
 </div>
 
 <script>
-    let inputs = document.querySelectorAll(".quantity-product")
+    // Hàm tăng số lượng
+    function increase(id, index) {
+        let inputs = document.querySelectorAll('.quantity-product')
+        const quantityInput = inputs[index]
+        console.log(quantityInput);
 
-    function decrease(id) {
-        if (inputs[id].value > 1) {
-            inputs[id].value--;
+        let currentValue = parseInt(quantityInput.value);
+
+        if (!isNaN(currentValue)) {
+            quantityInput.value = currentValue + 1;
+        } else {
+            quantityInput.value = 1;
         }
     }
 
-    function increase(id) {
-        inputs[id].value++
+    // Hàm giảm số lượng
+    function decrease(id, index) {
+        let inputs = document.querySelectorAll('.quantity-product')
+        const quantityInput = inputs[index]
+        console.log(quantityInput);
+
+        let currentValue = parseInt(quantityInput.value);
+
+
+        if (!isNaN(currentValue) && currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        } else {
+            quantityInput.value = 1; // Không cho giảm dưới 1
+        }
+    }
+
+    // Hàm xác nhận xóa
+    function confirmDelete(url) {
+        if (window.confirm("Bạn có chắc chắn muốn xóa không?")) {
+            window.location = url;
+        }
     }
 </script>
