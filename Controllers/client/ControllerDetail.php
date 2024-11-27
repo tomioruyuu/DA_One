@@ -38,27 +38,37 @@ class ControllerDetail
 
             // thực hiện chức năng thêm sản phẩm vào giỏ hàng
             if (isset($_POST["btn_add-cart"])) {
-                $quantity = $_POST["quantity"];
-                $price = $product->price;
-                $size = $_POST["size"];
-                $id_products = isset($_GET["id"]) ? $_GET["id"] : "";
-                $errors = [];
-                if (!trim($size)) {
-                    $errors["size"]["required"] = "Vui lòng chọn kích thước ";
-                }
+                if (isset($_SESSION["username"])) {
+                    $email = isset($_SESSION["email"]) ? $_SESSION["email"] : "";
+                    $user = $mDetail->getUserByEmail($email);
+                    $id_users = $user->id;
+                    $quantity = $_POST["quantity"];
+                    $price = $product->price;
+                    $size = $_POST["size"];
+                    $id_products = isset($_GET["id"]) ? $_GET["id"] : "";
+                    $errors = [];
+                    if (!trim($size)) {
+                        $errors["size"]["required"] = "Vui lòng chọn kích thước ";
+                    }
 
-                if (empty($errors)) {
-                    $mDetail->insertCart(null, $id_products, $quantity, $price, $size);
-                    direct("?act=productDetail&id=$id_products");
-                    echo "<script> alert('Thêm vào giỏ hàng thành công')</script>";
+                    if (empty($errors)) {
+                        $mDetail->insertCart(null, $id_products, $id_users, $quantity, $price, $size);
+                        echo "<script> alert('Thêm vào giỏ hàng thành công')</script>";
+                        echo "<script>window.location.href='?act=productDetail&id=$id_products';</script>";
+                    } else {
+                        setFlashData("errors", $errors);
+                    }
                 } else {
-                    setFlashData("errors", $errors);
+                    setFlashData("smg-cart", "Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng");
+                    setFlashData("smg-cart_type", "danger");
                 }
             }
         } catch (Exception $e) {
             echo $e->getMessage();
         }
         $errors = getFlashData("errors");
+        $smg_cart = getFlashData("smg-cart");
+        $smg_cart_type = getFlashData("smg-cart_type");
         $smg = getFlashData("smg");
         $smg_type = getFlashData("smg_type");
         require_once("./Views/client/detailProduct.php");

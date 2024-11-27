@@ -17,7 +17,7 @@ class ControllerLogin
                 $listEmail = $mLogin->getEmails();
                 $authenticated = false;
                 foreach ($listEmail as $item) {
-                    if ($item->email == $email && $item->password == $pass) {
+                    if ($item->email == $email && password_verify($pass, $item->password)) {
                         $authenticated = true;
                         $_SESSION["name_user"] = $item->username;
 

@@ -13,6 +13,7 @@
             </div>
         </div>
         <div class="product-info">
+
             <h1><?php echo $product->name ?></h1>
             <p class="product-price">
                 <span class="current-price">₫<?php echo $product->price ?></span>
@@ -28,7 +29,7 @@
                         <option value="38">L</option>
                         <option value="39">XL</option>
                         <option value="40">XXL</option>
-                        
+
                     </select>
                     <p class="text-danger">
                         <?php show_err_message($errors, "size") ?>
@@ -67,6 +68,7 @@
                 </div>
 
             </form>
+            <?php getSmg($smg_cart, $smg_cart_type) ?>
 
         </div>
     </div>

@@ -57,6 +57,9 @@ switch ($act) {
     case "cart":
         $cCart->renderCart();
         break;
+    case "deleteCart":
+        $cCart->deleteFromCart();
+        break;
     case "logout":
         $cLogoutClient->handleLogout();
     case "search":
@@ -65,6 +68,7 @@ switch ($act) {
     case "product":
         $cProductClient->renderProduct();
         break;
+
 
     default:
         $cHome->renderHomePage();
