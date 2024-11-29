@@ -19,7 +19,7 @@
                             <p onclick="confirmDelete('?act=deleteCart&id=<?php echo $item->id ?>')" class="text-center">Xóa</p>
                             <div class="cart-quantity">
                                 <button onclick="decrease(<?php echo $item->id ?>, <?php echo $index ?> )">-</button>
-                                <input class="quantity-product" type="text" value="1" min="1" name="quantity">
+                                <input class="quantity-product" type="text" value="<?php echo $item->quantity ?>" min="1" name="quantity">
                                 <button onclick="increase(<?php echo $item->id ?>, <?php echo $index ?>)">+</button>
                             </div>
                         </div>

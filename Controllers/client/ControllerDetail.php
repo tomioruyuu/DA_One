@@ -53,6 +53,7 @@ class ControllerDetail
 
                     if (empty($errors)) {
                         $mDetail->insertCart(null, $id_products, $id_users, $quantity, $price, $size);
+                        $_SESSION["quantityCart"]  = $mDetail->getQuantityCart($id_users)->quantity;
                         echo "<script> alert('Thêm vào giỏ hàng thành công')</script>";
                         echo "<script>window.location.href='?act=productDetail&id=$id_products';</script>";
                     } else {

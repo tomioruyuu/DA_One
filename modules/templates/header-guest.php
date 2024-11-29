@@ -39,6 +39,7 @@
 </head>
 
 <body>
+    
     <header>
         <div class="main-content">
             <div class="header-content df-center">
@@ -122,7 +123,7 @@
                         <a href="?act=cart">
                             <i class="fa-solid fa-cart-shopping"></i>
                             <div class="quantity">
-                                <p>0</p>
+                                <p><?php echo isset($_SESSION["quantityCart"]) ? $_SESSION["quantityCart"] : "0" ?></p>
                             </div>
                         </a>
                     </div>

@@ -49,4 +49,9 @@ class detailProduct
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id, $id_products, $id_users, $quantity, $price, $size]);
     }
+    public function getQuantityCart($id_users) {
+        $sql = "SELECT COUNT(id) AS quantity FROM `cart` WHERE id_user=?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id_users], false);
+    }
 }
