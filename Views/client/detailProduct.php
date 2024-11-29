@@ -24,11 +24,11 @@
                     <label for="">Size:</label>
                     <select name="size" id="">
                         <option value="">Chọn size</option>
-                        <option value="36">S</option>
-                        <option value="37">M</option>
-                        <option value="38">L</option>
-                        <option value="39">XL</option>
-                        <option value="40">XXL</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
 
                     </select>
                     <p class="text-danger">

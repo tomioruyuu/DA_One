@@ -53,5 +53,17 @@ class detailProduct
         $sql = "SELECT COUNT(id) AS quantity FROM `cart` WHERE id_user=?";
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_users], false);
+    public function checkExist($id_products)
+    {
+        $sql = "SELECT `id` FROM `cart` WHERE id_products = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id_products]);
+    }
+
+    public function updateQuantity($id_products)
+    {
+        $sql = "UPDATE cart SET quantity = quantity + 1 WHERE id_products = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id_products]);
     }
 }

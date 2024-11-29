@@ -8,27 +8,32 @@ class ControllerDetail
             if (isset($_GET["id"])) {
                 $id_products = $_GET["id"];
                 $product = $mDetail->getProductById($id_products);
+                if (!$product) {
+                    throw new Exception("Không tìm thấy sản phẩm");
+                }
+            } else {
+                throw new Exception("ID sản phẩm không hợp lệ");
             }
 
-            // lấy dữ liệu về sản phẩm tương tự
-            $id_category = $product->id_category;
-            $listSimilarProduct = $mDetail->getSimilarProduct($id_category, $id_products);
+            // Lấy sản phẩm tương tự
+            $id_category = $product->id_category ?? null;
+            $listSimilarProduct = $id_category ? $mDetail->getSimilarProduct($id_category, $id_products) : [];
 
-
-            // lấy ra các bình luận của sản phẩm
+            // Lấy bình luận sản phẩm
             $comments = $mDetail->getComment($id_products);
 
-            // thực hiện chức năng bình luận
+            // Thêm bình luận
             if (isset($_POST["send_comment"])) {
                 if (isset($_SESSION["username"])) {
-                    $content = $_POST["content"];
-                    $email = isset($_SESSION["email"]) ? $_SESSION["email"] : "";
-                    $user = $mDetail->getUserByEmail($email);
+                    $content = $_POST["content"] ?? "";
                     if ($content) {
-                        $id_users = $user->id;
+                        $email = $_SESSION["email"] ?? "";
+                        $user = $mDetail->getUserByEmail($email);
+                        $id_users = $user->id ?? null;
                         $date = date("Y-m-d H:i:s");
                         $mDetail->insertComment(null, $id_users, $id_products, $content, $date);
-                        direct("?act=productDetail&id=$id_products");
+                        header("Location: ?act=productDetail&id=$id_products");
+                        exit();
                     }
                 } else {
                     setFlashData("smg", "Vui lòng đăng nhập để thực hiện chức năng này");
@@ -36,42 +41,48 @@ class ControllerDetail
                 }
             }
 
-            // thực hiện chức năng thêm sản phẩm vào giỏ hàng
+            // Thêm vào giỏ hàng
             if (isset($_POST["btn_add-cart"])) {
-                if (isset($_SESSION["username"])) {
-                    $email = isset($_SESSION["email"]) ? $_SESSION["email"] : "";
-                    $user = $mDetail->getUserByEmail($email);
-                    $id_users = $user->id;
-                    $quantity = $_POST["quantity"];
-                    $price = $product->price;
-                    $size = $_POST["size"];
-                    $id_products = isset($_GET["id"]) ? $_GET["id"] : "";
-                    $errors = [];
-                    if (!trim($size)) {
-                        $errors["size"]["required"] = "Vui lòng chọn kích thước ";
-                    }
-
-                    if (empty($errors)) {
-                        $mDetail->insertCart(null, $id_products, $id_users, $quantity, $price, $size);
-                        $_SESSION["quantityCart"]  = $mDetail->getQuantityCart($id_users)->quantity;
-                        echo "<script> alert('Thêm vào giỏ hàng thành công')</script>";
-                        echo "<script>window.location.href='?act=productDetail&id=$id_products';</script>";
-                    } else {
-                        setFlashData("errors", $errors);
-                    }
-                } else {
+                if (!isset($_SESSION["username"])) {
                     setFlashData("smg-cart", "Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng");
                     setFlashData("smg-cart_type", "danger");
+                } else {
+                    $email = $_SESSION["email"] ?? "";
+                    $quantity = $_POST["quantity"] ?? 1;
+                    $size = $_POST["size"] ?? "";
+                    $errors = [];
+
+                    if (!trim($size)) {
+                        $errors["size"]["required"] = "Vui lòng chọn kích thước";
+                    }
+
+                    if (!empty($errors)) {
+                        setFlashData("errors", $errors);
+                    } else {
+                        $check = $mDetail->checkExist($id_products);
+                        if ($check) {
+                            $mDetail->updateQuantity($id_products);
+                        } else {
+                            $user = $mDetail->getUserByEmail($email);
+                            $id_users = $user->id ?? null;
+                            $price = $product->price ?? 0;
+                            $mDetail->insertCart(null, $id_products, $id_users, $quantity, $price, $size);
+                        }
+                        echo "<script>alert('Thêm vào giỏ hàng thành công')</script>";
+                        echo "<script>window.location.href='?act=productDetail&id=$id_products';</script>";
+                    }
                 }
             }
+
+            $errors = getFlashData("errors");
+            $smg_cart = getFlashData("smg-cart");
+            $smg_cart_type = getFlashData("smg-cart_type");
+            $smg = getFlashData("smg");
+            $smg_type = getFlashData("smg_type");
+
+            require_once("./Views/client/detailProduct.php");
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo "Lỗi: " . $e->getMessage();
         }
-        $errors = getFlashData("errors");
-        $smg_cart = getFlashData("smg-cart");
-        $smg_cart_type = getFlashData("smg-cart_type");
-        $smg = getFlashData("smg");
-        $smg_type = getFlashData("smg_type");
-        require_once("./Views/client/detailProduct.php");
     }
 }
