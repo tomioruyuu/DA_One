@@ -49,4 +49,17 @@ class detailProduct
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id, $id_products, $id_users, $quantity, $price, $size]);
     }
+    public function checkExist($id_products)
+    {
+        $sql = "SELECT `id` FROM `cart` WHERE id_products = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id_products]);
+    }
+
+    public function updateQuantity($id_products)
+    {
+        $sql = "UPDATE cart SET quantity = quantity + 1 WHERE id_products = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id_products]);
+    }
 }
