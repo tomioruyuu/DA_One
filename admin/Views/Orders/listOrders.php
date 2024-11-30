@@ -11,10 +11,11 @@
                 <thead>
                     <th></th>
                     <th>ID</th>
+                    <th>Id_user</th>
                     <th>Trạng thái</th>
                     <th>Hình thức thanh toán</th>
-                    <th>Địa chỉ</th>
                     <th>Ngày đặt</th>
+                    <th>Chức năng</th>
                 </thead>
                 <tbody>
                     <?php
@@ -23,10 +24,10 @@
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
                             <td><?php echo $orders->id ?></td>
-                            <td><?php echo $orders->status ?></td>
+                            <td><?php echo $orders->id_users ?></td>
+                            <td><?php echo $orders->status == 0 ? "Đang chờ xử lí" : "" ?></td>
                             <td><?php echo $orders->methods_payment ?></td>
-                            <td><?php echo $orders->another_address ?></td>
-                            <td><?php echo $orders->create_at ?></td>
+                                <td><?php echo $orders->create_at ?></td>
                             <td>
                                 <button onclick="confirmDelete('?act=deleteOrders&id=<?php echo $orders->id ?>')" class="btn btn-danger btn-function">
                                     <i class="fa-solid fa-trash"></i>
