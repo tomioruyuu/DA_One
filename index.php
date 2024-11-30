@@ -12,6 +12,7 @@ require_once("./Model/client/DetailProduct.php");
 require_once("./Model/client/Cart.php");
 require_once("./Model/client/Search.php");
 require_once("./Model/client/ProductClient.php");
+require_once("./Model/client/Info.php");
 
 
 // phần controller client
@@ -26,6 +27,7 @@ require_once("./Controllers/client/ControllerHeader.php");
 require_once("./Controllers/client/ControllerLogout.php");
 require_once("./Controllers/client/ControllerSearch.php");
 require_once("./Controllers/client/ControllerProductClient.php");
+require_once("./Controllers/client/ControllerInfo.php");
 
 // index phần người dùng
 
@@ -40,6 +42,7 @@ $cHeader = new ControllerHeader();
 $cSearch = new ControllerSearch();
 $cLogoutClient = new ControllerLogoutClient();
 $cProductClient = new ControllerProductClient();
+$cInfo = new ControllerInfo();
 
 // điều hướng giao diện
 $act = $_GET["act"] ?? "/";
@@ -68,7 +71,9 @@ switch ($act) {
     case "product":
         $cProductClient->renderProduct();
         break;
-
+    case "info":
+        $cInfo->renderInfo();
+        break;
 
     default:
         $cHome->renderHomePage();

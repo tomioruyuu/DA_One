@@ -15,21 +15,23 @@ class ControllerLogin
 
             if (empty($errors)) {
                 $listEmail = $mLogin->getEmails();
-                
+
                 $authenticated = false;
                 foreach ($listEmail as $item) {
                     if ($item->email == $email && password_verify($pass, $item->password)) {
                         $authenticated = true;
                         $_SESSION["name_user"] = $item->username;
 
-                        
+
                         if ($email == "admin@gmail.com") {
                             $_SESSION["quantityCart"] = $mLogin->getQuantityCart($item->id)->quantity;
+                            $_SESSION["id"] = $item->id;
                             $_SESSION["username"] = "admin";
                             $_SESSION["email"] = $email;
                             direct("http://localhost/DA_One/admin");
                         } else {
                             $_SESSION["quantityCart"] = $mLogin->getQuantityCart($item->id)->quantity;
+                            $_SESSION["id"] = $item->id;
                             $_SESSION["username"] = "guest";
                             $_SESSION["email"] = $email;
                             direct("?act=/");
