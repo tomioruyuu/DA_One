@@ -68,6 +68,7 @@ class ControllerDetail
                             $price = $product->price ?? 0;
                             $mDetail->insertCart(null, $id_products, $id_users, $quantity, $price, $size);
                         }
+                        $_SESSION["quantityCart"] = $mDetail->getQuantityCart($_SESSION["id"])->quantity ;
                         echo "<script>alert('Thêm vào giỏ hàng thành công')</script>";
                         echo "<script>window.location.href='?act=productDetail&id=$id_products';</script>";
                     }

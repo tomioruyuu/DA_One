@@ -13,6 +13,8 @@ require_once("./Model/client/Cart.php");
 require_once("./Model/client/Search.php");
 require_once("./Model/client/ProductClient.php");
 require_once("./Model/client/Info.php");
+require_once("./Model/client/Method.php");
+require_once("./Model/client/Finish.php");
 
 
 // phần controller client
@@ -28,6 +30,8 @@ require_once("./Controllers/client/ControllerLogout.php");
 require_once("./Controllers/client/ControllerSearch.php");
 require_once("./Controllers/client/ControllerProductClient.php");
 require_once("./Controllers/client/ControllerInfo.php");
+require_once("./Controllers/client/ControllerMethod.php");
+require_once("./Controllers/client/ControllerFinish.php");
 
 // index phần người dùng
 
@@ -43,6 +47,8 @@ $cSearch = new ControllerSearch();
 $cLogoutClient = new ControllerLogoutClient();
 $cProductClient = new ControllerProductClient();
 $cInfo = new ControllerInfo();
+$cMethod = new ControllerMethod();
+$cFinish = new ControllerFinish();
 
 // điều hướng giao diện
 $act = $_GET["act"] ?? "/";
@@ -74,7 +80,12 @@ switch ($act) {
     case "info":
         $cInfo->renderInfo();
         break;
-
+    case "method_payment":
+        $cMethod->renderMethod();
+        break;
+    case "finish":
+        $cFinish->renderFinish();
+        break;
     default:
         $cHome->renderHomePage();
 }

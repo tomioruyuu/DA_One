@@ -24,7 +24,7 @@ class Info
 
     public function getTotal($id_user)
     {
-        $sql = "SELECT SUM(price) AS total FROM cart WHERE id_user = ?";
+        $sql = "SELECT SUM(price * quantity) AS total FROM cart WHERE id_user = ?";
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_user], false);
     }
