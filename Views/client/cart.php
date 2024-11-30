@@ -48,7 +48,7 @@
                 <li>Vui lòng nhập <b>MÃ_UU_ĐÃI</b> tại trang thanh toán</li>
             </ul>
 
-            <button class="checkout-button">THANH TOÁN</button>
+            <a href="?act=info" class="checkout-button">THANH TOÁN</a>
         </div>
 
     </div>

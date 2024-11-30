@@ -226,7 +226,7 @@ header {
   position: relative;
 }
 
-.quantity {
+.header-cart .quantity {
   position: absolute;
   top: -15px;
   right: -10px;
@@ -875,8 +875,6 @@ footer .copy_right {
   text-decoration: underline;
 }
 
-
-
 /* Phần giỏ hàng */
 .cart-container {
   display: flex;
@@ -1031,6 +1029,7 @@ footer .copy_right {
 }
 
 .checkout-button {
+  text-align: center;
   display: block;
   width: 100%;
   padding: 12px 0;
@@ -1334,4 +1333,106 @@ footer .copy_right {
   margin-top: 50px;
   padding: 20px;
   background-color: #fff;
+}
+
+/* thông tin đơn hàng */
+.content-info {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.shipping-info {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
+  height: 460px;
+}
+
+.shipping-info > h2 {
+  font-size: 2.5rem;
+}
+
+.info-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-cta a {
+  font-size: 1.3rem;
+}
+
+.info-btn {
+  padding: 5px 8px;
+  display: inline-block;
+  font-size: 1.3rem;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background: #fff;
+  border-radius: 5px;
+  transition: 0.2s linear;
+}
+
+.info-btn:hover {
+  color: #fff;
+  background: var(--primary-color);
+}
+
+.order-summary > h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.order-summary .quantity-info {
+  color: #777;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.discount {
+  display: flex;
+  gap: 20px;
+}
+
+.discount input {
+  width: 540px;
+  padding: 10px 4px;
+  font-size: 1.2rem;
+}
+
+.discount button {
+  font-size: 1.4rem;
+  padding: 5px 8px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 5px;
+  background: #fff;
+  transition: 0.2s linear;
+}
+
+.discount button:hover {
+  color: #fff;
+  background: var(--primary-color);
+}
+
+.summary {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.summary p {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.summary .total {
+  font-weight: bold;
+  color: #ff5722;
+}
+
+.summary .total span {
+  font-size: 2rem;
 }
