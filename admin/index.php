@@ -18,6 +18,7 @@ require_once("./Model/Statistics.php");
 require_once("./Model/Category.php");
 require_once("./Model/Orders.php");
 require_once("./Model/Discount.php");
+require_once("./Model/OrderDetail.php");
 
 // phần controller admin
 require_once("./Controllers/ControllerProducts.php");
@@ -29,6 +30,7 @@ require_once("./Controllers/ControllerOrders.php");
 require_once("./Controllers/ControllerLogout.php");
 require_once("./Controllers/ControllerDashboard.php");
 require_once("./Controllers/ControllerDiscount.php");
+require_once("./Controllers/ControllerOrderDetail.php");
 
 require_once("./modules/function/function.php");
 
@@ -43,6 +45,7 @@ $cCategory = new ControllerCategory();
 $cOrders = new ControllerOrders();
 $cLogoutAmin = new ControllerLogoutAdmin();
 $cDiscounts = new ControllerDiscount();
+$cOrderDetail = new ControllerOrderDetail();
 
 $act = $_GET["act"] ?? "/";
 
@@ -104,6 +107,11 @@ switch ($act) {
         break;
     case "deleteOrders":
         $cOrders->deleteOrders();
+        break;
+
+        // handle order details
+    case "order_detail":
+        $cOrderDetail->renderOrderDetail();
         break;
 
     default:

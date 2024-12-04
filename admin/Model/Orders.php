@@ -17,7 +17,7 @@ class Orders {
     }
 
     public function getAllOrders(){
-        $sql="SELECT * FROM `orders` ";
+        $sql="SELECT orders.*, u.username, u.fullname FROM `orders` INNER JOIN users as u on u.id = orders.id_users";
         $this->connect->setQuery($sql);
         return $this->connect->loadData();
     }
