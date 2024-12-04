@@ -21,7 +21,7 @@
             </div>
             <div class="dashboard-item d-flex flex-column align-items-center">
                 <img src="./modules/images/account.png" alt="" class="dashboard-item_img">
-                <a href="?act=listAccount" class="dashboard-item_name">Tài khoản</a>
+                <a href="?act=listAccounts" class="dashboard-item_name">Tài khoản</a>
                 <p class="dashboard-item_quantity"><?php echo $quantityAcc->quantity ?></p>
             </div>
             <div class="dashboard-item d-flex flex-column align-items-center">

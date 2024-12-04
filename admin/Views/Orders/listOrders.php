@@ -5,8 +5,11 @@
         <div class="list-product">
             <div class="list_product-heading df-center align-items-center">
                 <div class="title-line"></div>
-                <h1 class="title-list-product">Danh mục đơn hàng</h1>
+                <h1 class="title-list-product">Danh sách đơn hàng</h1>
             </div>
+            <?php if((isset($smg)) && isset($smg_type)) {
+                getSmg($smg, $smg_type);
+            }  ?>
             <table class="table table-hover table-striped">
                 <thead>
                     <th></th>
@@ -27,11 +30,12 @@
                             <td><?php echo $orders->id ?></td>
                             <td><?php echo $orders->username ?></td>
                             <td><?php echo $orders->fullname ?></td>
-                            <td><?php echo $orders->status == 0 ? "Đang chờ xử lí" : "" ?></td>
+                            <td><?php echo $orders->status ?></td>
                             <td><?php echo $orders->methods_payment ?></td>
                             <td><?php echo $orders->create_at ?></td>
                             <td>
                                 <a href="?act=order_detail&id=<?php echo $orders->id ?>" class="btn btn-info btn-function">Chi tiết</a>
+                                <a href="?act=editOrders&id=<?php echo $orders->id ?>" class="btn btn-warning btn-function">sửa</a>
                                 <button onclick="confirmDelete('?act=deleteOrders&id=<?php echo $orders->id ?>')" class="btn btn-danger btn-function">
                                     <i class="fa-solid fa-trash"></i>
                                     Xóa
@@ -47,7 +51,7 @@
             <div class="list-cta">
                 <button class="btn">Chọn tất cả</button>
                 <button class="btn">Xóa mục đã chọn</button>
-                <a href="?act=addOrders" class="btn">Thêm</a>
+                <a href="?act=addOrders" class="btn">Sửa</a>
             </div>
         </div>
     </div>
