@@ -108,6 +108,9 @@ switch ($act) {
     case "deleteOrders":
         $cOrders->deleteOrders();
         break;
+    case "editOrders":
+        $cOrders->editOrders();
+        break;
 
         // handle order details
     case "order_detail":

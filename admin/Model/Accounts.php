@@ -1,47 +1,52 @@
-<?php 
+<?php
 // đây là trang tài khoản
-    class Accounts {
-        public $connect;
+class Accounts
+{
+    public $connect;
 
-        public function __construct()
-        {
-            $this->connect = new ConnectDatabase();
-        }
+    public function __construct()
+    {
+        $this->connect = new ConnectDatabase();
+    }
 
-        public function insertAccounts($id, $username, $password, $email, $phone, $address){
-            $sql="INSERT INTO `users`(`id`,`fullname`, `username`, `password`, `email`, `phone`, `address`) VALUES (?,?,?,?,?,?,?)";
-            $this->connect->setQuery($sql);
-            $check = $this->connect->loadData([$id, $username, $password, $email, $phone, $address]);
-            if($check){
-                return true;
-            }
-        }
-    
-        public function getAllAccounts(){
-            $sql="SELECT * FROM `users` ";
-            $this->connect->setQuery($sql);
-            return $this->connect->loadData();
-        }
-    
-        public function getAccountsById($id){
-            $sql="SELECT * FROM `users` where id = ? ";
-            $this->connect->setQuery($sql);
-            return $this->connect->loadData([$id],false);
-        }
-    
-        public function updateAccounts($username, $password, $email, $phone, $address,$id){
-            $sql="UPDATE `users` SET `username`=?,`password`=?,`email`=?,`phone`=?,`address`=? WHERE `id`=?";
-            $this->connect->setQuery($sql);
-            $check = $this->connect->loadData([$username, $password, $email, $phone, $address,$id]);
-            if($check){
-                return true;
-            }
-        }
-    
-        public function deleteAccounts($id){
-            $sql="DELETE FROM `users` id=";
-            $this->connect->setQuery($sql);
-            return $this->connect->loadData([$id]);
+    public function insertAccounts($id, $username, $password, $email, $phone, $address)
+    {
+        $sql = "INSERT INTO `users`(`id`,`fullname`, `username`, `password`, `email`, `phone`, `address`) VALUES (?,?,?,?,?,?,?)";
+        $this->connect->setQuery($sql);
+        $check = $this->connect->loadData([$id, $username, $password, $email, $phone, $address]);
+        if ($check) {
+            return true;
         }
     }
-?>
+
+    public function getAllAccounts()
+    {
+        $sql = "SELECT * FROM `users` ";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData();
+    }
+
+    public function getAccountsById($id)
+    {
+        $sql = "SELECT * FROM `users` where id = ? ";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id], false);
+    }
+
+    public function updateAccounts($username, $password, $email, $phone, $address, $id)
+    {
+        $sql = "UPDATE `users` SET `username`=?,`password`=?,`email`=?,`phone`=?,`address`=? WHERE `id`=?";
+        $this->connect->setQuery($sql);
+        $check = $this->connect->loadData([$username, $password, $email, $phone, $address, $id]);
+        if ($check) {
+            return true;
+        }
+    }
+
+    public function deleteAccounts($id)
+    {
+        $sql = "DELETE FROM `users` id=";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id]);
+    }
+}
