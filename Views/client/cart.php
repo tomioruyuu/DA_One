@@ -38,7 +38,7 @@
             <h2>Thông tin đơn hàng</h2>
             <div class="total-section">
                 <span class="label">Tổng tiền:</span>
-                <span class="total-price">₫<?php echo $totalPrice ? $totalPrice : 0 ?></span>
+                <span class="total-price">₫<?php echo isset($totalPrice) ? $totalPrice : 0 ?></span>
             </div>
 
             <hr class="divider">

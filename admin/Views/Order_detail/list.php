@@ -11,11 +11,10 @@
                 <thead>
                     <th></th>
                     <th>ID</th>
-                    <th>Username</th>
-                    <th>Fullname</th>
-                    <th>Trạng thái</th>
-                    <th>Hình thức thanh toán</th>
-                    <th>Ngày đặt</th>
+                    <th>Id_orders</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá sản phẩm</th>
+                    <th>Số lượng</th>
                     <th>Chức năng</th>
                 </thead>
                 <tbody>
@@ -25,13 +24,11 @@
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
                             <td><?php echo $orders->id ?></td>
-                            <td><?php echo $orders->username ?></td>
-                            <td><?php echo $orders->fullname ?></td>
-                            <td><?php echo $orders->status == 0 ? "Đang chờ xử lí" : "" ?></td>
-                            <td><?php echo $orders->methods_payment ?></td>
-                            <td><?php echo $orders->create_at ?></td>
+                            <td><?php echo $orders->id_orders ?></td>
+                            <td><?php echo $orders->name ?></td>
+                            <td><?php echo $orders->unitPrice ?></td>
+                            <td><?php echo $orders->quantity ?></td>
                             <td>
-                                <a href="?act=order_detail&id=<?php echo $orders->id ?>" class="btn btn-info btn-function">Chi tiết</a>
                                 <button onclick="confirmDelete('?act=deleteOrders&id=<?php echo $orders->id ?>')" class="btn btn-danger btn-function">
                                     <i class="fa-solid fa-trash"></i>
                                     Xóa
@@ -47,7 +44,7 @@
             <div class="list-cta">
                 <button class="btn">Chọn tất cả</button>
                 <button class="btn">Xóa mục đã chọn</button>
-                <a href="?act=addOrders" class="btn">Thêm</a>
+                <a href="?act=listOrders" class="btn">Danh sách đơn hàng</a>
             </div>
         </div>
     </div>
