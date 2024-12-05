@@ -5,10 +5,7 @@ class ControllerOrders
     {
         $mOrders = new Orders();
         $listOrders = $mOrders->getAllOrders();
-        if (isset($_SESSION["smg"])) {
-            $smg = $_SESSION["smg"];
-            $smg_type = $_SESSION["smg_type"];
-        }
+
         require_once("./Views/Orders/listOrders.php");
     }
 
@@ -59,8 +56,6 @@ class ControllerOrders
             if (empty($errors)) {
                 $mOrder->updateOrders($orderInfo->id_users, $status, $payment_method, $create_at, $total, $address, $id);
                 $mOrder->updateOrderStatus($status, $id);
-                setFlashData("smg", "Cập nhật thành công");
-                setFlashData("smg_type", "success");
                 direct("?act=listOrders");
                 exit;
             } else {

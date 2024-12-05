@@ -101,6 +101,9 @@
                                     <a href="">Tài khoản</a>
                                 </li>
                                 <li>
+                                    <a href="?act=yourOrders">Đơn hàng của bạn</a>
+                                </li>
+                                <li>
                                     <a href="?act=logout">Đăng xuất</a>
                                 </li>
                             <?php

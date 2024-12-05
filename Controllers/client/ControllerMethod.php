@@ -16,7 +16,8 @@ class ControllerMethod
                 $method_payment = $_POST["method"];
                 $create_at = date('Y-m-d H:i:s');
                 $address = isset($_SESSION["address"]) ? $_SESSION["address"] : "";
-                $id_orders = $mMethod->insertOrder(null, $id_user, "Chờ xác nhận", $method_payment, $create_at, $totalPrice->total, $address);
+                $allPrice = $totalPrice->total + 30;
+                $id_orders = $mMethod->insertOrder(null, $id_user, "Chờ xác nhận", $method_payment, $create_at, $allPrice, $address);
                 foreach ($listProduct as $item) {
                     $mMethod->insertOrderDetail(null, $id_orders, $item->id, $item->price, $item->quantity);
                 }

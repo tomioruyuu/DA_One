@@ -15,6 +15,7 @@ require_once("./Model/client/ProductClient.php");
 require_once("./Model/client/Info.php");
 require_once("./Model/client/Method.php");
 require_once("./Model/client/Finish.php");
+require_once("./Model/client/YourOrders.php");
 
 
 // phần controller client
@@ -32,6 +33,7 @@ require_once("./Controllers/client/ControllerProductClient.php");
 require_once("./Controllers/client/ControllerInfo.php");
 require_once("./Controllers/client/ControllerMethod.php");
 require_once("./Controllers/client/ControllerFinish.php");
+require_once("./Controllers/client/ControllerYourOrders.php");
 
 // index phần người dùng
 
@@ -49,6 +51,7 @@ $cProductClient = new ControllerProductClient();
 $cInfo = new ControllerInfo();
 $cMethod = new ControllerMethod();
 $cFinish = new ControllerFinish();
+$cYourOrders = new ControllerYourOrders();
 
 // điều hướng giao diện
 $act = $_GET["act"] ?? "/";
@@ -85,6 +88,9 @@ switch ($act) {
         break;
     case "finish":
         $cFinish->renderFinish();
+        break;
+    case "yourOrders":
+        $cYourOrders->renderYourOrders();
         break;
     default:
         $cHome->renderHomePage();
