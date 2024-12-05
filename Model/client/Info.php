@@ -10,7 +10,7 @@ class Info
 
     public function getProductInCart($id_user)
     {
-        $sql = "SELECT p.name, p.img, cart.price * cart.quantity AS price, cart.quantity, cart.size FROM `cart` INNER JOIN products as p ON p.id = cart.id_products WHERE id_user = ?";
+        $sql = "SELECT p.name, p.img, cart.price, cart.quantity, cart.size FROM `cart` INNER JOIN products as p ON p.id = cart.id_products WHERE id_user = ?";
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_user]);
     }
@@ -28,4 +28,5 @@ class Info
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_user], false);
     }
+
 }

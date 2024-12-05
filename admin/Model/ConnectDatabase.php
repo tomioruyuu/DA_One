@@ -1,43 +1,44 @@
 <?php
 require_once 'env.php';
-class ConnectDatabase{
-//    Các thuộc tính tạo sẵn theo base
+class ConnectDatabase
+{
+    //    Các thuộc tính tạo sẵn theo base
     public $pdo;
     public $sql;
     public $sta;
 
 
-//  Tự kết nối với database
+    //  Tự kết nối với database
     public function __construct()
     {
         try {
-            $this->pdo = new PDO("mysql:host="._HOST.";dbname="._DB_NAME.";charset="._CHARSET, _USER, _PASS);
+            $this->pdo = new PDO("mysql:host=" . _HOST . ";dbname=" . _DB_NAME . ";charset=" . _CHARSET, _USER, _PASS);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-           
         } catch (PDOException $e) {
-            echo $e->getMessage(). "<br>";
-            echo $e->getLine(). "<br>";
-            echo $e->getFile(). "<br>";
-           
+            echo $e->getMessage() . "<br>";
+            echo $e->getLine() . "<br>";
+            echo $e->getFile() . "<br>";
         }
     }
 
-//   Các phương thức tạo sẵn theo base
-    public function setQuery($sql) {
+    //   Các phương thức tạo sẵn theo base
+    public function setQuery($sql)
+    {
         $this->sql = $sql;
     }
     // hàm này sẽ làm hàm chạy câu truy vấn
-    public function execute($options=array()) {
+    public function execute($options = array())
+    {
         try {
             // Chuẩn bị câu truy vấn SQL
             $this->sta = $this->pdo->prepare($this->sql);
 
             // Nếu có options (các giá trị để bind)
-            if($options) {
+            if ($options) {
                 // Lặp qua từng option
-                for($i=0;$i<count($options);$i++) {
+                for ($i = 0; $i < count($options); $i++) {
                     // Bind tham số ở index $i+1 với giá trị tương ứng trong mảng $options
-                    $this->sta->bindParam($i+1,$options[$i]);
+                    $this->sta->bindParam($i + 1, $options[$i]);
                 }
             }
 
@@ -50,40 +51,40 @@ class ConnectDatabase{
             // Xử lý ngoại lệ PDOException
             // Ở đây có thể log lỗi, thông báo cho người dùng hoặc thực hiện các hành động khác
             // Ví dụ:
-            echo "Lỗi khi thực thi truy vấn: " . $e->getMessage();
-            echo $e->getLine(). "<br>";
-            echo $e->getFile(). "<br>";
+            echo "Lỗi khi thực thi truy vấn: " . $e->getMessage() . "<br>";
+            echo $e->getLine() . "<br>";
+            echo $e->getFile() . "<br>";
             // hoặc
             // throw $e; // Chuyển ngoại lệ để xử lý ở nơi khác nếu cần
         }
     }
-//    Truy vấn
-    public function loadData($options=array(),$getAllData = true) {
+    //    Truy vấn
+    public function loadData($options = array(), $getAllData = true)
+    {
         try {
             // Nếu không có options được cung cấp
-            if(!$options) {
+            if (!$options) {
                 // Thực thi truy vấn mặc định
-                if(!$result = $this->execute())
+                if (!$result = $this->execute())
                     return false;
-            }
-            else {
+            } else {
                 // Nếu có options, thực thi truy vấn với các options đã cho
-                if(!$result = $this->execute($options))
+                if (!$result = $this->execute($options))
                     return false;
             }
-            if($getAllData == true){
+            if ($getAllData == true) {
                 // Trả về tất cả các hàng từ kết quả truy vấn dưới dạng một mảng các đối tượng
                 return $result->fetchAll(PDO::FETCH_OBJ);
-            }else {
+            } else {
                 return $result->fetch(PDO::FETCH_OBJ);
             }
         } catch (PDOException $e) {
             // Xử lý ngoại lệ PDOException
             // Có thể log lỗi, thông báo cho người dùng hoặc thực hiện các hành động khác
             // Ví dụ:
-            echo "Lỗi truy vấn: " . $e->getMessage();
-            echo $e->getLine(). "<br>";
-            echo $e->getFile(). "<br>";
+            echo "Lỗi truy vấn: " . $e->getMessage() . "<br>";
+            echo $e->getLine() . "<br>";
+            echo $e->getFile() . "<br>";
             // hoặc
             // throw $e; // Chuyển ngoại lệ để xử lý ở nơi khác nếu cần
         }

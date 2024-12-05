@@ -12,7 +12,6 @@
                     <th></th>
                     <th>ID</th>
                     <th>Tên đăng nhập</th>
-                    <th>Mật khẩu</th>
                     <th>Email</th>
                     <th>SĐT</th>
                     <th>Địa chỉ</th>
@@ -26,7 +25,6 @@
                             <td><input type="checkbox" name="" id=""></td>
                             <td><?php echo $accounts->id ?></td>
                             <td><?php echo $accounts->username ?></td>
-                            <td><?php echo $accounts->password ?></td>
                             <td><?php echo $accounts->email ?></td>
                             <td><?php echo $accounts->phone ?></td>
                             <td><?php echo $accounts->address ?></td>

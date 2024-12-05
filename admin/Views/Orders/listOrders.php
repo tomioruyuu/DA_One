@@ -51,7 +51,6 @@
             <div class="list-cta">
                 <button class="btn">Chọn tất cả</button>
                 <button class="btn">Xóa mục đã chọn</button>
-                <a href="?act=addOrders" class="btn">Sửa</a>
             </div>
         </div>
     </div>
