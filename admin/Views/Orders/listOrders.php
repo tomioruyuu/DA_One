@@ -7,9 +7,6 @@
                 <div class="title-line"></div>
                 <h1 class="title-list-product">Danh sách đơn hàng</h1>
             </div>
-            <?php if((isset($smg)) && isset($smg_type)) {
-                getSmg($smg, $smg_type);
-            }  ?>
             <table class="table table-hover table-striped">
                 <thead>
                     <th></th>
