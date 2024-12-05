@@ -52,4 +52,10 @@ class Orders
         $this->connect->setQuery($sql);
         return $this->connect->execute([$id]);
     }
+
+    public function updateOrderStatus($status, $id_order) {
+        $sql = "UPDATE `order_status` SET `status`=? WHERE `id_order`=?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$status, $id_order]);
+    }
 }

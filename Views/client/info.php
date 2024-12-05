@@ -56,12 +56,12 @@ require_once("./modules/templates/header-guest.php");
                 </div>
                 <div class="form-group">
                     <label for="address">Địa chỉ</label>
-                    <input class="form-control" type="text" id="address" required value="<?php echo $userInfo->address ?>">
+                    <input class="form-control" type="text" id="address" name="address" required value="<?php echo $userInfo->address ?>">
                 </div>
 
                 <div class="info-cta">
                     <a href="?act=cart">Giỏ hàng</a>
-                    <a href="?act=method_payment" class="info-btn mt20">Tiếp tục đến phương thức thanh toán</a>
+                    <button name="btn-info" class="info-btn mt20">Tiếp tục đến phương thức thanh toán</button>
                 </div>
             </form>
         </section>

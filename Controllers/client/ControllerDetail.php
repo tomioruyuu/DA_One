@@ -59,9 +59,9 @@ class ControllerDetail
                     if (!empty($errors)) {
                         setFlashData("errors", $errors);
                     } else {
-                        $check = $mDetail->checkExist($id_products);
+                        $check = $mDetail->checkExist($id_products, $size);
                         if ($check) {
-                            $mDetail->updateQuantity($id_products);
+                            $mDetail->updateQuantity($id_products, $size);
                         } else {
                             $user = $mDetail->getUserByEmail($email);
                             $id_users = $user->id ?? null;

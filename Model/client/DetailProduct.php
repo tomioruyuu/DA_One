@@ -55,17 +55,17 @@ class detailProduct
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_users], false);
     }
-    public function checkExist($id_products)
+    public function checkExist($id_products, $size)
     {
-        $sql = "SELECT `id` FROM `cart` WHERE id_products = ?";
+        $sql = "SELECT `id` FROM `cart` WHERE id_products = ? and size = ?";
         $this->connect->setQuery($sql);
-        return $this->connect->loadData([$id_products]);
+        return $this->connect->loadData([$id_products, $size]);
     }
 
-    public function updateQuantity($id_products)
+    public function updateQuantity($id_products, $size)
     {
-        $sql = "UPDATE cart SET quantity = quantity + 1 WHERE id_products = ?";
+        $sql = "UPDATE cart SET quantity = quantity + 1 WHERE id_products = ? and size = ?";
         $this->connect->setQuery($sql);
-        return $this->connect->loadData([$id_products]);
+        return $this->connect->loadData([$id_products, $size]);
     }
 }

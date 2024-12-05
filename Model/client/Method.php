@@ -10,7 +10,7 @@ class Method
 
     public function getProductInCart($id_user)
     {
-        $sql = "SELECT p.id, p.name, p.img, cart.price * cart.quantity AS price, cart.quantity, cart.size FROM `cart` INNER JOIN products as p ON p.id = cart.id_products WHERE id_user = ?";
+        $sql = "SELECT p.id, p.name, p.img, cart.price, cart.quantity, cart.size FROM `cart` INNER JOIN products as p ON p.id = cart.id_products WHERE id_user = ?";
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_user]);
     }
@@ -29,11 +29,11 @@ class Method
         return $this->connect->loadData([$id_user], false);
     }
 
-    public function insertOrder($id, $id_users, $status, $methods_payment, $create_at, $total)
+    public function insertOrder($id, $id_users, $status, $methods_payment, $create_at, $total, $address)
     {
-        $sql = "INSERT INTO `orders`(`id`, `id_users`, `status`, `methods_payment`, `create_at`, `total`) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO `orders`(`id`, `id_users`, `status`, `methods_payment`, `create_at`, `total`, `address`) VALUES (?,?,?,?,?,?,?)";
         $this->connect->setQuery($sql);
-        $this->connect->loadData([$id, $id_users, $status, $methods_payment, $create_at, $total]);
+        $this->connect->loadData([$id, $id_users, $status, $methods_payment, $create_at, $total, $address]);
         return $this->connect->pdo->lastInsertId();
     }
 
@@ -44,15 +44,23 @@ class Method
         return $this->connect->loadData([$id, $id_orders, $id_product, $unitPrice, $quantity]);
     }
 
-    public function clearCart($id_user) {
+    public function clearCart($id_user)
+    {
         $sql = "DELETE FROM `cart` WHERE id_user = ?";
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_user]);
     }
 
-    public function getQuantityCart($id_user) {
+    public function getQuantityCart($id_user)
+    {
         $sql = "SELECT COUNT(id) AS quantity FROM `cart` WHERE id_user= ?";
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_user], false);
+    }
+
+    public function insertOrderStatus($id_user, $status, $update_at) {
+        $sql = "INSERT INTO `order_status`(`id_order`, `status`, `updated_at`) VALUES (?,?,?)";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id_user, $status, $update_at]);
     }
 }

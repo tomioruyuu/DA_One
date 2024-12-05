@@ -15,10 +15,14 @@ class ControllerMethod
             try {
                 $method_payment = $_POST["method"];
                 $create_at = date('Y-m-d H:i:s');
-                $id_orders = $mMethod->insertOrder(null, $id_user, 0, $method_payment, $create_at, $totalPrice->total);
+                $address = isset($_SESSION["address"]) ? $_SESSION["address"] : "";
+                $id_orders = $mMethod->insertOrder(null, $id_user, "Chờ xác nhận", $method_payment, $create_at, $totalPrice->total, $address);
                 foreach ($listProduct as $item) {
                     $mMethod->insertOrderDetail(null, $id_orders, $item->id, $item->price, $item->quantity);
                 }
+                $date = date('Y-m-d H:i:s');
+                $mMethod->insertOrderStatus($id_orders, "Chờ xác nhận", $date);
+                deleteSession("address");
                 $mMethod->clearCart($id_user);
                 $_SESSION["quantityCart"] = $mMethod->getQuantityCart($id_user)->quantity;
                 echo "<script>alert('Hoàn tất thanh toán')</script>";
