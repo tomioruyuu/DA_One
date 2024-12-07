@@ -66,9 +66,17 @@ class Method
         return $this->connect->pdo->lastInsertId();
     }
 
-    public function updateOrderStatus($id_order, $id_status) {
+    public function updateOrderStatus($id_order, $id_status)
+    {
         $sql = "UPDATE `order_status` SET `id_order`= ? WHERE `id`=?";
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_order, $id_status]);
+    }
+
+    public function updateQuantityOfProduct($quantity, $id_product)
+    {
+        $sql = "UPDATE `products` SET `quantity`= `quantity` - ? WHERE `id`= ? ";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$quantity, $id_product]);
     }
 }

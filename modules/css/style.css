@@ -385,6 +385,7 @@ header {
   width: 350px;
 }
 
+
 .list-cta button,
 .list-cta a,
 .btn-form {
@@ -1188,6 +1189,12 @@ footer .copy_right {
   margin: 0;
   border: none;
   outline: none;
+}
+
+.in-stock p {
+  font-size: 1.3rem;
+  margin-top: 5px;
+  color: gray;
 }
 
 .endow {
