@@ -101,6 +101,10 @@ switch ($act) {
     case "listComments":
         $cComments->listComments();
         break;
+    case "commentsDetail": 
+        $cComments->commentsDetail();
+        break;
+    case "addComments":
     case "deleteComments":
         $cComments->deleteComments();
         break;

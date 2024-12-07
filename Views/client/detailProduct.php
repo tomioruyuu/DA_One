@@ -45,6 +45,10 @@
                     </div>
                 </div>
 
+                <div class="in-stock mt-10">
+                    <p>Hiện còn: <?php echo $product->quantity?> sản phẩm</p>
+                </div>
+
                 <div class="endow">
                     <h3>Ưu đãi:</h3>
                     <ul class="list-endow">

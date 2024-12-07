@@ -5,39 +5,33 @@
         <div class="list-product">
             <div class="list_product-heading df-center align-items-center">
                 <div class="title-line"></div>
-                <h1 class="title-list-product">Chi tiết đơn hàng</h1>
+                <h1 class="title-list-product">Chi tiết  bình luận</h1>
             </div>
             <table class="table table-hover table-striped">
                 <thead>
                     <th></th>
-                    <th>ID</th>
-                    <th>Id_orders</th>
-                    <th>Ảnh sản phẩm</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Giá sản phẩm</th>
-                    <th>Số lượng</th>
-                    <!-- <th>Chức năng</th> -->
+                    <th>Người bình luận</th>
+                    <th>Nội dung </th>
+                    <th>Thời gian</th>
+                    <th>Chức năng</th>
                 </thead>
                 <tbody class="body-comment_admin">
                     <?php
-                    foreach ($listOrders as $orders) {
+                    foreach ($listComments as $comments) {
                     ?>
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
-                            <td><?php echo $orders->id ?></td>
-                            <td><?php echo $orders->id_orders ?></td>
-                            <td class="comments_admin-img"><img src="<?php echo $orders->img ?>" alt=""></td>
+                            <td><?php echo $comments->username ?></td>
                             <td class="comments_admin-name">
-                                <p class="name"><?php echo $orders->name ?></p>
+                                <p class="name"><?php echo $comments->content ?></p>
                             </td>
-                            <td><?php echo $orders->unitPrice ?></td>
-                            <td><?php echo $orders->quantity ?></td>
-                            <!-- <td>
-                                <button onclick="confirmDelete('?act=deleteOrdersDetail&id=<?php echo $orders->id ?>')" class="btn btn-danger btn-function">
+                            <td><?php echo $comments->ngaybinhluan ?></td>
+                            <td>
+                                <button onclick="confirmDelete('?act=deleteComments&id=<?php echo $comments->id ?>')" class="btn btn-danger btn-function">
                                     <i class="fa-solid fa-trash"></i>
                                     Xóa
                                 </button>
-                            </td> -->
+                            </td>
                         </tr>
 
                     <?php
@@ -48,11 +42,12 @@
             <div class="list-cta">
                 <button class="btn">Chọn tất cả</button>
                 <button class="btn">Xóa mục đã chọn</button>
-                <a href="?act=listOrders" class="btn">Danh sách đơn hàng</a>
+                <a href="?act=addCategory" class="btn">Thêm</a>
             </div>
         </div>
     </div>
 </div>
+
 <script>
     function confirmDelete(url) {
         if (window.confirm("Bạn có chắc chắn muốn xóa không")) {

@@ -25,6 +25,7 @@ class ControllerMethod
                 $id_order = $mMethod->insertOrder(null, $id_user, $id_status, $method_payment, $create_at, $allPrice, $address);
                 foreach ($listProduct as $item) {
                     $mMethod->insertOrderDetail(null, $id_order, $item->id, $item->price, $item->quantity);
+                    $mMethod->updateQuantityOfProduct($item->quantity, $item->id);
                 }
                 $mMethod->updateOrderStatus($id_order, $id_status);
                 deleteSession("address");

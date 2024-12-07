@@ -10,29 +10,25 @@
             <table class="table table-hover table-striped">
                 <thead>
                     <th></th>
-                    <th>ID</th>
-                    <th>ID Users</th>
+                    <th>Hình ảnh</th>
                     <th>Sản phẩm</th>
-                    <th>Nội dung bình luận</th>
-                    <th>Ngày bình luận</th>
+                    <th>Số lượng bình luận</th>
                     <th>Chức năng</th>
                 </thead>
-                <tbody>
+                <tbody class="body-comment_admin">
                     <?php
                     foreach ($listComments as $comments) {
                     ?>
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
-                            <td><?php echo $comments->id ?></td>
-                            <td><?php echo $comments->id_users ?></td>
-                            <td><?php echo $comments->id_products ?></td>
-                            <td><?php echo $comments->content ?></td>
-                            <td><?php echo $comments->ngaybinhluan ?></td>
+                            <td class="comments_admin-img"><img src="<?php echo $comments->img ?>" alt=""></td>
+                            <td class="comments_admin-name">
+                                <p class="name"><?php echo $comments->name ?></p>
+                            </td>
+                            <td><?php echo $comments->quantity ?></td>
                             <td>
-                                <button onclick="confirmDelete('?act=deleteComments&id=<?php echo $comments->id ?>')" class="btn btn-danger btn-function">
-                                    <i class="fa-solid fa-trash"></i>
-                                    Xóa
-                                </button>
+                                <a href="?act=commentsDetail&id=<?php echo $comments->id ?>" class="btn btn-info btn-function">Xem chi tiết</a>
+
                             </td>
                         </tr>
 
