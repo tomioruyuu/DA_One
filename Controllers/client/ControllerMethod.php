@@ -17,12 +17,16 @@ class ControllerMethod
                 $create_at = date('Y-m-d H:i:s');
                 $address = isset($_SESSION["address"]) ? $_SESSION["address"] : "";
                 $allPrice = $totalPrice->total + 30;
-                $id_orders = $mMethod->insertOrder(null, $id_user, "Chờ xác nhận", $method_payment, $create_at, $allPrice, $address);
-                foreach ($listProduct as $item) {
-                    $mMethod->insertOrderDetail(null, $id_orders, $item->id, $item->price, $item->quantity);
-                }
+                
+                // tạo thời gian khi cập nhật trạng thái
                 $date = date('Y-m-d H:i:s');
-                $mMethod->insertOrderStatus($id_orders, "Chờ xác nhận", $date);
+                $id_status = $mMethod->insertOrderStatus($date);
+
+                $id_order = $mMethod->insertOrder(null, $id_user, $id_status, $method_payment, $create_at, $allPrice, $address);
+                foreach ($listProduct as $item) {
+                    $mMethod->insertOrderDetail(null, $id_order, $item->id, $item->price, $item->quantity);
+                }
+                $mMethod->updateOrderStatus($id_order, $id_status);
                 deleteSession("address");
                 $mMethod->clearCart($id_user);
                 $_SESSION["quantityCart"] = $mMethod->getQuantityCart($id_user)->quantity;

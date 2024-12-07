@@ -14,18 +14,13 @@ class ControllerOrders
         $mOrder = new Orders();
         $errors = [];
         if (isset($_GET["id"])) {
+            // lấy id của order
             $id = $_GET["id"];
             $orderInfo = $mOrder->getOrderToEdit($id);
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Hàm kiểm tra định dạng ngày hợp lệ
-            function validateDate($date)
-            {
-                $format = 'Y-m-d H:i:s'; // Định dạng ngày mong muốn
-                $d = DateTime::createFromFormat($format, $date);
-                return $d && $d->format($format) === $date;
-            }
 
             $status = trim($_POST['status']);
             $payment_method = trim($_POST['payment_method']);
@@ -49,12 +44,11 @@ class ControllerOrders
 
             if (empty($create_at)) {
                 $errors['create-ad']['required'] = "Ngày đặt không được để trống.";
-            } elseif (!validateDate($create_at)) {
-                $errors['create-ad']['isValid'] = "Ngày đặt không hợp lệ.";
             }
 
             if (empty($errors)) {
-                $mOrder->updateOrders($orderInfo->id_users, $status, $payment_method, $create_at, $total, $address, $id);
+                $mOrder->updateOrders($orderInfo->id_users, $payment_method, $create_at, $total, $address, $id);
+                // cập nhật lại trạng thái trong bảng order status
                 $mOrder->updateOrderStatus($status, $id);
                 direct("?act=listOrders");
                 exit;

@@ -8,6 +8,9 @@ if (!isset($_SESSION["username"]) || $_SESSION["username"] !== "admin") {
     header("Location: http://localhost/DA_One/?act=login");
     exit();
 }
+
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+
 // phần model admin
 require_once("./Model/ConnectDatabase.php");
 require_once("./Model/Dashboard.php");
