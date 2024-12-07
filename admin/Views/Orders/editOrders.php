@@ -11,7 +11,7 @@
                 <div class="block">
                     <div class="form-group">
                         <label for="">Mã đơn hàng</label>
-                        <input type="text" placeholder="Tự động" disabled class="form-control">
+                        <input type="text" value="<?php echo $orderInfo->id ?>" disabled class="form-control">
 
                     </div>
 
@@ -70,7 +70,7 @@
 
                     <div class="form-group">
                         <label for="">Ngày đặt</label>
-                        <input type="text" class="form-control" name="create-ad" value="<?php echo $orderInfo->create_at ?>">
+                        <input type="date" class="form-control" name="create-ad" value="<?php echo $orderInfo->create_at ?>">
                         <p class="text-danger">
                             <?php
                             show_err_message($errors, "create-ad")

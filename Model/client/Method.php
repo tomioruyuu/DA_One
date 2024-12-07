@@ -29,11 +29,11 @@ class Method
         return $this->connect->loadData([$id_user], false);
     }
 
-    public function insertOrder($id, $id_users, $status, $methods_payment, $create_at, $total, $address)
+    public function insertOrder($id, $id_users, $id_status, $methods_payment, $create_at, $total, $address)
     {
-        $sql = "INSERT INTO `orders`(`id`, `id_users`, `status`, `methods_payment`, `create_at`, `total`, `address`) VALUES (?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO `orders`(`id`, `id_users`, `id_status`, `methods_payment`, `create_at`, `total`, `address`) VALUES (?,?,?,?,?,?,?)";
         $this->connect->setQuery($sql);
-        $this->connect->loadData([$id, $id_users, $status, $methods_payment, $create_at, $total, $address]);
+        $this->connect->loadData([$id, $id_users, $id_status, $methods_payment, $create_at, $total, $address]);
         return $this->connect->pdo->lastInsertId();
     }
 
@@ -58,9 +58,17 @@ class Method
         return $this->connect->loadData([$id_user], false);
     }
 
-    public function insertOrderStatus($id_user, $status, $update_at) {
-        $sql = "INSERT INTO `order_status`(`id_order`, `status`, `updated_at`) VALUES (?,?,?)";
+    public function insertOrderStatus($update_at)
+    {
+        $sql = "INSERT INTO `order_status`( `updated_at`) VALUES (?)";
         $this->connect->setQuery($sql);
-        return $this->connect->loadData([$id_user, $status, $update_at]);
+        $this->connect->loadData([$update_at]);
+        return $this->connect->pdo->lastInsertId();
+    }
+
+    public function updateOrderStatus($id_order, $id_status) {
+        $sql = "UPDATE `order_status` SET `id_order`= ? WHERE `id`=?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id_order, $id_status]);
     }
 }

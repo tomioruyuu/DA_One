@@ -15,15 +15,12 @@ class ControllerLogin
 
             if (empty($errors)) {
                 $listEmail = $mLogin->getEmails();
-
                 $authenticated = false;
                 foreach ($listEmail as $item) {
                     if ($item->email == $email && password_verify($pass, $item->password)) {
                         $authenticated = true;
                         $_SESSION["name_user"] = $item->username;
-
-
-                        if ($email == "admin@gmail.com") {
+                        if ($item->role == "admin") {
                             $_SESSION["quantityCart"] = $mLogin->getQuantityCart($item->id)->quantity;
                             $_SESSION["id"] = $item->id;
                             $_SESSION["username"] = "admin";
@@ -34,7 +31,7 @@ class ControllerLogin
                             $_SESSION["id"] = $item->id;
                             $_SESSION["username"] = "guest";
                             $_SESSION["email"] = $email;
-                            direct("?act=/");
+                            direct("http://localhost/DA_One/");
                         }
                         break; // Ngừng kiểm tra khi đã khớp
                     }

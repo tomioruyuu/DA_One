@@ -5,7 +5,7 @@
         <div class="list-product">
             <div class="list_product-heading df-center align-items-center">
                 <div class="title-line"></div>
-                <h1 class="title-list-product">Danh mục đơn hàng</h1>
+                <h1 class="title-list-product">Chi tiết đơn hàng</h1>
             </div>
             <table class="table table-hover table-striped">
                 <thead>
@@ -15,7 +15,7 @@
                     <th>Tên sản phẩm</th>
                     <th>Giá sản phẩm</th>
                     <th>Số lượng</th>
-                    <th>Chức năng</th>
+                    <!-- <th>Chức năng</th> -->
                 </thead>
                 <tbody>
                     <?php
@@ -28,12 +28,12 @@
                             <td><?php echo $orders->name ?></td>
                             <td><?php echo $orders->unitPrice ?></td>
                             <td><?php echo $orders->quantity ?></td>
-                            <td>
-                                <button onclick="confirmDelete('?act=deleteOrders&id=<?php echo $orders->id ?>')" class="btn btn-danger btn-function">
+                            <!-- <td>
+                                <button onclick="confirmDelete('?act=deleteOrdersDetail&id=<?php echo $orders->id ?>')" class="btn btn-danger btn-function">
                                     <i class="fa-solid fa-trash"></i>
                                     Xóa
                                 </button>
-                            </td>
+                            </td> -->
                         </tr>
 
                     <?php
