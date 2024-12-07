@@ -3,8 +3,8 @@
 <div class="main-content">
     <div class="yours-content mt-30">
         <div class="header-yours-orders">
-            <a href="?act=yourOrders" class="active">Tất cả</a>
-            <a href="?act=canceled">Đã hủy</a>
+            <a href="?act=yourOrders">Tất cả</a>
+            <a href="?act=canceled" class="active">Đã hủy</a>
         </div>
 
         <table class="table table-yours mt20">
@@ -51,7 +51,6 @@
                                 <input type="text" hidden value="<?php echo $item->id_status ?>" name="id_status">
                                 <input type="text" hidden value="<?php echo $item->id ?>" name="id_order">
                                 <a href="?act=detailYourOrders&id=<?php echo $item->id ?>" class="btn btn-info">Chi tiết</a>
-                                <button <?php echo $item->status != "Chờ xác nhận" ? "disabled" : null ?> name="handleDelete" class="btn btn-danger"><?php echo $item->status != "Chờ xác nhận" ? "Không thể hủy" : "Hủy" ?></button>
                             </form>
                         </td>
                     </tr>

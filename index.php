@@ -16,6 +16,8 @@ require_once("./Model/client/Info.php");
 require_once("./Model/client/Method.php");
 require_once("./Model/client/Finish.php");
 require_once("./Model/client/YourOrders.php");
+require_once("./Model/client/DetailYourOrders.php");
+require_once("./Model/client/Canceled.php");
 
 
 // phần controller client
@@ -34,6 +36,8 @@ require_once("./Controllers/client/ControllerInfo.php");
 require_once("./Controllers/client/ControllerMethod.php");
 require_once("./Controllers/client/ControllerFinish.php");
 require_once("./Controllers/client/ControllerYourOrders.php");
+require_once("./Controllers/client/ControllerDetailYourOrders.php");
+require_once("./Controllers/client/ControllerCanceled.php");
 
 // index phần người dùng
 
@@ -52,6 +56,8 @@ $cInfo = new ControllerInfo();
 $cMethod = new ControllerMethod();
 $cFinish = new ControllerFinish();
 $cYourOrders = new ControllerYourOrders();
+$cDetailYourOrders = new ControllerDetailYourOrders();
+$cCanceled = new ControllerCanceled();
 
 // điều hướng giao diện
 $act = $_GET["act"] ?? "/";
@@ -91,6 +97,12 @@ switch ($act) {
         break;
     case "yourOrders":
         $cYourOrders->renderYourOrders();
+        break;
+    case "detailYourOrders":
+        $cDetailYourOrders->renderYourDetailOrders();
+        break;
+    case "canceled":
+        $cCanceled->renderCanceled();
         break;
     default:
         $cHome->renderHomePage();
