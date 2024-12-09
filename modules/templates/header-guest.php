@@ -39,7 +39,7 @@
 </head>
 
 <body>
-    
+
     <header>
         <div class="main-content">
             <div class="header-content df-center">
@@ -49,7 +49,7 @@
 
                 <ul class="navigation df-center">
                     <li>
-                        <a class="active" href="?act=/">Trang chủ</a>
+                        <a href="?act=/">Trang chủ</a>
                     </li>
                     <li>
                         <a href="?act=product">Sản phẩm</a>
@@ -90,6 +90,9 @@
                                 </li>
                                 <li>
                                     <a href="http://localhost/DA_One/">Giao diện người dùng</a>
+                                </li>
+                                <li>
+                                    <a href="?act=yourOrders">Đơn hàng của bạn</a>
                                 </li>
                                 <li>
                                     <a href="?act=logout">Đăng xuất</a>
