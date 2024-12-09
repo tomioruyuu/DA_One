@@ -20,21 +20,54 @@
                         <label for="">Trạng thái đơn hàng</label>
                         <select class="form-select" name="status" aria-label="Default select example">
                             <option value="">Thay đổi trạng thái</option>
-                            <option value="Chờ xác nhận" <?php if ($orderInfo->status == 'Chờ xác nhận') echo 'selected'; ?>>Chờ xác nhận</option>
-                            <option value="Đã xác nhận" <?php if ($orderInfo->status == 'Đã xác nhận') echo 'selected'; ?>>Đã xác nhận</option>
-                            <option value="Đang chuẩn bị hàng" <?php if ($orderInfo->status == 'Đang chuẩn bị hàng') echo 'selected'; ?>>Đang chuẩn bị hàng</option>
-                            <option value="Đang trong quá trình vận chuyển" <?php if ($orderInfo->status == 'Đang trong quá trình vận chuyển') echo 'selected'; ?>>Đang trong quá trình vận chuyển</option>
-                            <option value="Đang giao" <?php if ($orderInfo->status == 'Đang giao') echo 'selected'; ?>>Đang giao</option>
-                            <option value="Giao hàng thành công" <?php if ($orderInfo->status == 'Giao hàng thành công') echo 'selected'; ?>>Giao hàng thành công</option>
-                            <option value="Đã nhận" <?php if ($orderInfo->status == 'Đã nhận') echo 'selected'; ?>>Đã nhận</option>
-                            <option value="Đã hủy" <?php if ($orderInfo->status == 'Đã hủy') echo 'selected'; ?>>Đã hủy</option>
+                            <?php
+                            $statuses = [
+                                "Chờ xác nhận",
+                                "Đã xác nhận",
+                                "Đang chuẩn bị hàng",
+                                "Đang trong quá trình vận chuyển",
+                                "Đang giao",
+                                "Giao hàng thành công",
+                                "Đã nhận",
+                                "Đã hủy"
+                            ];
+
+                            // Lấy vị trí trạng thái hiện tại
+                            $currentIndex = array_search($orderInfo->status, $statuses);
+
+                            foreach ($statuses as $index => $status) {
+                            ?>
+                                <option value="<?= $status ?>"
+                                    <?php
+                                    // Đánh dấu trạng thái hiện tại là selected
+                                    if ($orderInfo->status == $status) {
+                                        echo 'selected';
+                                    }
+
+                                    // Điều kiện chuyển trạng thái
+                                    if ($status == 'Đã hủy') {
+                                        // "Đã hủy" chỉ có thể được chọn nếu trạng thái hiện tại là "Chờ xác nhận"
+                                        if ($orderInfo->status != 'Chờ xác nhận') {
+                                            echo 'disabled';
+                                        }
+                                    } elseif ($index !== $currentIndex + 1 && $orderInfo->status != $status) {
+                                        // Các trạng thái khác chỉ có thể chuyển sang bước tiếp theo
+                                        echo 'disabled';
+                                    }
+                                    ?>>
+                                    <?= $status ?>
+                                </option>
+                            <?php
+                            }
+                            ?>
                         </select>
                         <p class="text-danger">
-                            <?php
-                            show_err_message($errors, "address")
-                            ?>
+                            <?php show_err_message($errors, "address"); ?>
                         </p>
                     </div>
+
+
+
                     <div class="form-group">
                         <label for="">Hình thức thanh toán</label>
                         <select class="form-select" name="payment_method" aria-label="Default select example">
