@@ -26,7 +26,8 @@ class YourOrders
                 INNER JOIN products AS p ON p.id = orders_detail.id_product
                 INNER JOIN order_status AS ot ON o.id_status = ot.id
                 WHERE o.id_users = ? AND ot.status != 'Đã hủy'
-                GROUP BY o.id;
+                GROUP BY o.id
+                ORDER BY o.id desc
                 ";
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_user]);
@@ -35,6 +36,13 @@ class YourOrders
     public function changeStatusOrder($id_order, $id_status)
     {
         $sql = "UPDATE `order_status` SET `status`='Đã hủy' WHERE `id_order` = ? AND `id` = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id_order, $id_status]);
+    }
+
+    public function handleReceiveStatus($id_order, $id_status)
+    {
+        $sql = "UPDATE `order_status` SET `status`='Đã nhận' WHERE `id_order` = ? AND `id` = ?";
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$id_order, $id_status]);
     }

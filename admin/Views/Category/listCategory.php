@@ -5,7 +5,7 @@
         <div class="list-product">
             <div class="list_product-heading df-center align-items-center">
                 <div class="title-line"></div>
-                <h1 class="title-list-product">Danh mục sản phẩm</h1>
+                <h1 class="title-list-product">Danh sách danh mục</h1>
             </div>
             <table class="table table-hover table-striped">
                 <thead>

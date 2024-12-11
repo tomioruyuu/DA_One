@@ -103,6 +103,13 @@ a {
   padding: 10px;
 }
 
+/* banner */
+.carousel-inner img {
+  height: 535px;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* header navigation */
 header {
   background: #fff;
@@ -384,7 +391,6 @@ header {
 .table-product_desc {
   width: 350px;
 }
-
 
 .list-cta button,
 .list-cta a,
@@ -1337,9 +1343,11 @@ footer .copy_right {
 }
 
 .similar {
-  margin-top: 50px;
   padding: 20px;
   background-color: #fff;
+  width: 1170px;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 /* thông tin đơn hàng */
@@ -1466,14 +1474,9 @@ footer .copy_right {
 
 .form-content {
   padding: 15px;
-  border: 1px solid #ddd;
-}
+ }
 
-.form-content .form-group {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
+
 
 .form-content .form-group input {
   margin: 0;
@@ -1554,6 +1557,7 @@ footer .copy_right {
   font-size: 1.4rem;
   text-align: center;
   padding: 5px 0;
+  vertical-align: middle;
 }
 
 .item-content {
@@ -1638,6 +1642,7 @@ footer .copy_right {
 .info-products table td {
   text-align: center;
   font-size: 1.5rem;
+  vertical-align: middle;
 }
 
 .info-products table .name {
@@ -1673,7 +1678,7 @@ footer .copy_right {
 }
 
 .header-yours-orders a {
-  display:  inline-block;
+  display: inline-block;
   padding: 10px 16px;
   color: #000;
   font-size: 1.5rem;

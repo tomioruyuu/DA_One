@@ -5,12 +5,12 @@
     <div class="detail-content product-container">
         <div class="product-image">
             <img src="<?php echo $product->img ?>" alt="Hình ảnh sản phẩm">
-            <div class="thumbnail-container">
+            <!-- <div class="thumbnail-container">
                 <img class="thumbnail" src="thumb1.jpg" alt="Ảnh phụ 1" onclick="changeImage('thumb1.jpg')">
                 <img class="thumbnail" src="thumb2.jpg" alt="Ảnh phụ 2" onclick="changeImage('thumb2.jpg')">
                 <img class="thumbnail" src="thumb3.jpg" alt="Ảnh phụ 3" onclick="changeImage('thumb3.jpg')">
                 <img class="thumbnail" src="thumb4.jpg" alt="Ảnh phụ 4" onclick="changeImage('thumb4.jpg')">
-            </div>
+            </div> -->
         </div>
         <div class="product-info">
 

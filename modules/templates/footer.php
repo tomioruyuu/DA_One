@@ -78,7 +78,7 @@
                 </section>
             </div>
         </div>
-        <p class="copy_right">Copyright © 2024 Thời trang công sở cao cấp Merriman. Powered by Haravan</p>
+        <p class="copy_right">Copyright © 2024 Thời trang cao cấp G7-Creative.</p>
     </footer>
     
 <script src="modules/js/bootstrap.min.js"></script>

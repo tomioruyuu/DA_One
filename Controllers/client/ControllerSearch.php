@@ -16,6 +16,11 @@
                     echo $e->getMessage();
                 }
             }
+
+            if(isset($_GET["id_category"])) {
+                $id_category = $_GET["id_category"];
+                $listProduct = $mSearch->getProductInSearch("",$id_category, "", "");
+            }
             require_once("./Views/client/search.php");
         }
     }

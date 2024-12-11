@@ -19,7 +19,7 @@ class Search
     }
 
 
-    public function getProductInSearch($key, $id_category, $price, $sort)
+    public function getProductInSearch($key = "", $id_category = "", $price = "", $sort = "")
     {
         $sql = "SELECT * FROM products WHERE 1=1"; 
 

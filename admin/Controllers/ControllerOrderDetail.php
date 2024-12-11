@@ -15,7 +15,7 @@
                 $id_order_detail = $_GET["id"];
                 $mOrderDetail = new OrderDetail();
                 $mOrderDetail->deleteOrderDetail($id_order_detail);
-                header("location:?act=listOrderDetail&id=$id_order_detail");
+                direct("?act=listOrders");
             }
         }
     }

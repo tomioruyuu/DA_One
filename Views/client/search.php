@@ -45,7 +45,7 @@
             <div class="search-list mb-20 col-10">
                 <?php
                 if (empty($listProduct)) {
-                    echo "Không có sản phẩm đáp ứng nhu cầu của bạn";
+                    echo "<p style='font-size: 1.8rem'>Không có sản phẩm nào đáp ứng nhu cầu của bạn</p>";
                 } else {
                     foreach ($listProduct as $item) {
                 ?>

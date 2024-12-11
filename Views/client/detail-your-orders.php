@@ -71,7 +71,7 @@
                     <?php
                     $allPriceProduct = 0;
                     foreach ($listProducts as $item) {
-                        $allPriceProduct += $item->unitPrice;
+                        $allPriceProduct += $item->unitPrice * $item->quantity;
                     }
                     ?>
                     <div>₫<?php echo number_format($allPriceProduct, 3, '.', ',') ?></div>

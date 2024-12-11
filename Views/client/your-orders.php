@@ -51,7 +51,24 @@
                                 <input type="text" hidden value="<?php echo $item->id_status ?>" name="id_status">
                                 <input type="text" hidden value="<?php echo $item->id ?>" name="id_order">
                                 <a href="?act=detailYourOrders&id=<?php echo $item->id ?>" class="btn btn-info">Chi tiết</a>
-                                <button <?php echo $item->status != "Chờ xác nhận" ? "disabled" : null ?> name="handleDelete" class="btn btn-danger"><?php echo $item->status != "Chờ xác nhận" ? "Không thể hủy" : "Hủy" ?></button>
+                                <?php
+                                if ($item->status == "Giao hàng thành công") {
+                                ?>
+                                    <button name="handleReceive" class="btn btn-success">Đã nhận</button>
+
+                                <?php
+                                } else if ($item->status == "Đã nhận") {
+                                ?>
+                                    <button name="" class="btn btn-success">Đánh giá</button>
+
+                                <?php
+                                } else {
+                                ?>
+                                    <button <?php echo $item->status != "Chờ xác nhận" ? "disabled" : null ?> name="handleDelete" class="btn btn-danger"><?php echo $item->status != "Chờ xác nhận" ? "Không thể hủy" : "Hủy" ?></button>
+
+                                <?php
+                                }
+                                ?>
                             </form>
                         </td>
                     </tr>
