@@ -3,6 +3,7 @@ session_start();
 ob_start();
 require_once("./Model/ConnectDatabase.php");
 
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 // phần model client
 require_once("./Model/client/Home.php");
 require_once("./Model/client/Footer.php");

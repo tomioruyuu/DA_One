@@ -31,8 +31,15 @@
                             <td><?php echo $orders->methods_payment ?></td>
                             <td><?php echo $orders->create_at ?></td>
                             <td>
-                                <a href="?act=order_detail&id=<?php echo $orders->id ?>" class="btn btn-info btn-function">Chi tiết</a>
-                                <a href="?act=editOrders&id=<?php echo $orders->id ?>" class="btn btn-warning btn-function">sửa</a>
+                                <button class="btn btn-info btn-function">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                    <a href="?act=order_detail&id=<?php echo $orders->id ?>">Chi tiết</a>
+                                </button>
+                                <button class="btn btn-warning btn-function">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <a href="?act=editOrders&id=<?php echo $orders->id ?>">Sửa</a>
+                                </button>
+
                                 <button onclick="confirmDelete('?act=deleteOrders&id=<?php echo $orders->id ?>')" class="btn btn-danger btn-function">
                                     <i class="fa-solid fa-trash"></i>
                                     Xóa

@@ -32,12 +32,12 @@
                             </td>
                             <td><?php echo $orders->unitPrice ?></td>
                             <td><?php echo $orders->quantity ?></td>
-                            <!-- <td>
+                            <td>
                                 <button onclick="confirmDelete('?act=deleteOrdersDetail&id=<?php echo $orders->id ?>')" class="btn btn-danger btn-function">
                                     <i class="fa-solid fa-trash"></i>
                                     Xóa
                                 </button>
-                            </td> -->
+                            </td>
                         </tr>
 
                     <?php

@@ -27,7 +27,10 @@
                             </td>
                             <td><?php echo $comments->quantity ?></td>
                             <td>
-                                <a href="?act=commentsDetail&id=<?php echo $comments->id ?>" class="btn btn-info btn-function">Xem chi tiết</a>
+                                <button class="btn btn-info btn-function">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                    <a href="?act=commentsDetail&id=<?php echo $comments->id ?>" class="btn btn-info btn-function">Xem chi tiết</a>
+                                </button>
 
                             </td>
                         </tr>

@@ -20,7 +20,7 @@ class Orders
 
     public function getAllOrders()
     {
-        $sql = "SELECT orders.*, u.username, u.fullname, ot.status as status FROM `orders` INNER JOIN users as u on u.id = orders.id_users INNER JOIN order_status as ot ON ot.id = orders.id_status";
+        $sql = "SELECT orders.*, u.username, u.fullname, ot.status as status FROM `orders` INNER JOIN users as u on u.id = orders.id_users INNER JOIN order_status as ot ON ot.id = orders.id_status ORDER BY orders.id desc";
         $this->connect->setQuery($sql);
         return $this->connect->loadData();
     }

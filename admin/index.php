@@ -123,6 +123,9 @@ switch ($act) {
     case "order_detail":
         $cOrderDetail->renderOrderDetail();
         break;
+    case "deleteOrdersDetail":
+        $cOrderDetail->deleteOrdersDetail();
+        break;
 
     default:
         $cDashboard->renderDashboard();
